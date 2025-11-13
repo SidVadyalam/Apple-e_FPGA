@@ -1,0 +1,136 @@
+############
+#  Vivado  #
+############
+
+## log files
+*.log
+*.jou
+#*.rpt
+#*.vdi
+
+## bitstream
+#*.bit
+*.bin
+*.mcs
+*.svf
+*.image
+
+## netlist
+*.edf
+*.edif
+*.vn
+*.vm
+
+## SDF
+*.sdf
+
+## sim dump
+*.vcd
+*.saif
+*.tcf
+*.wdb
+
+## others
+unisims
+
+## C-files
+*.elf
+*.a
+*.sa
+*.so
+*.lib
+
+## dirs
+vivado.cache/
+vivado.hw/
+vivado.ip_user_files/
+#vivado.runs/
+vivado.sim/
+vivado.tmp/
+
+###### for Xilinx Vivado|ISE
+.Xil/
+.cache/
+fsm_encoding.os
+tab_*/
+webtalk.*
+vivado_pid*.str
+hs_err_pid*
+xelab.*
+xsim.*
+xvlog.*
+*.cache
+*.hw
+*.ip_user_files
+#*.runs
+*.sim
+*.tmp
+*.backup.*
+*.debug
+
+## checkpoint files
+#*.dcp
+
+## custom
+*.begin.rst
+*.end.rst
+*.queue.rst
+*.jobs
+
+
+###########
+#  Vitis  #
+###########
+
+# When opening a Vitis project for the first time:
+# - Make a new workspace at the project directory (ends in _sdk)
+# - File > Import
+# - Eclipse workspace or zip file
+# - Open the same workspace directory again (ends in _sdk)
+# - Select all the projects
+# - Uncheck "Copy projects into workspace"
+# - Finish
+# - Update Hardware Specification (from the .xsa file in the corresponding Vivado project)
+
+#Build Results
+**/*_sdk/*.o
+**/*_sdk/*.elf
+**/*_sdk/*.d
+**/*_sdk/*.del
+**/*_sdk/export/
+
+#Workspace files
+**/*_sdk/.analytics
+**/*_sdk/.metadata
+**/*_sdk/RemoteSystemsTempFiles/
+**/*_sdk/**/_ide/*
+
+#Generate HW files
+**/*_sdk/*/hw/**/*
+!**/*_sdk/*/hw/*.xsa
+
+#Generated BSP files
+**/*_sdk/**/*bsp/ps7_cortexa9_*
+**/*_sdk/**/*bsp/psu_cortexa53_*
+**/*_sdk/**/*bsp/psu_cortexr5_*
+**/*_sdk/**/*bsp/psu_pmu_*
+
+#BSP Export (listed contents separately because "export" is a common name)
+**/*_sdk/*/export/
+
+Makefile
+**/*_sdk/*.mk
+
+#log files
+**/*_sdk/*.log
+
+#Eclipse files
+**/*_sdk/.buildpath
+**/*_sdk/.settings/org.eclipse.cdt.core.prefs
+
+
+############
+#  Custom  #
+############
+
+.DS_Store

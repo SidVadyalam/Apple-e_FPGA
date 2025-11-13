@@ -1,0 +1,25 @@
+# Vivado
+**/*.xpr linguist-vendored
+**/*.gen/** linguist-generated
+**/*.runs/** linguist-generated
+# IPs
+IP/*/bd/** linguist-generated
+IP/*/example_designs/** linguist-generated
+IP/*/src/*/** linguist-vendored
+IP/*/hdl/*.v linguist-vendored
+IP/*/sim/*.v linguist-vendored
+IP/*/sim/*/** linguist-generated
+IP/*/xgui/** linguist-generated
+IP/*/component.xml linguist-generated
+
+# Vitis
+
+## Platform project
+**/*_sdk/*_top/** linguist-generated
+
+## System project
+**/*_sdk/*_system/** linguist-generated
+
+## Application project
+**/*_sdk/*/src/*.ld linguist-generated
+**/*_sdk/*/src/platform* linguist-vendored
