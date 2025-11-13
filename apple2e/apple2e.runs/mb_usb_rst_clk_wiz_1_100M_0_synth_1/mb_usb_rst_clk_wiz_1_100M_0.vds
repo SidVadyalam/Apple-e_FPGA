@@ -1,0 +1,331 @@
+#-----------------------------------------------------------
+# Vivado v2022.2 (64-bit)
+# SW Build 3671981 on Fri Oct 14 04:59:54 MDT 2022
+# IP Build 3669848 on Fri Oct 14 08:30:02 MDT 2022
+# Start of session at: Wed Nov 12 23:37:49 2025
+# Process ID: 149661
+# Current directory: /home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.runs/mb_usb_rst_clk_wiz_1_100M_0_synth_1
+# Command line: vivado -log mb_usb_rst_clk_wiz_1_100M_0.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source mb_usb_rst_clk_wiz_1_100M_0.tcl
+# Log file: /home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.runs/mb_usb_rst_clk_wiz_1_100M_0_synth_1/mb_usb_rst_clk_wiz_1_100M_0.vds
+# Journal file: /home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.runs/mb_usb_rst_clk_wiz_1_100M_0_synth_1/vivado.jou
+# Running On: reet-Lenovo-V15-G4-ABP, OS: Linux, CPU Frequency: 3243.889 MHz, CPU Physical cores: 16, Host memory: 39773 MB
+#-----------------------------------------------------------
+source mb_usb_rst_clk_wiz_1_100M_0.tcl -notrace
+create_project: Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 1257.172 ; gain = 0.023 ; free physical = 17051 ; free virtual = 27489
+INFO: [IP_Flow 19-6924] IPCACHE: Running cache check for IP inst: mb_usb_rst_clk_wiz_1_100M_0
+Command: synth_design -top mb_usb_rst_clk_wiz_1_100M_0 -part xc7s50csga324-1 -incremental_mode off -mode out_of_context
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7s50'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7s50'
+INFO: [Device 21-403] Loading part xc7s50csga324-1
+INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 4 processes.
+INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
+INFO: [Synth 8-7075] Helper process launched with PID 150148
+INFO: [Synth 8-11241] undeclared symbol 'REGCCE', assumed default net type 'wire' [/tools/Xilinx/Vivado/2022.2/data/verilog/src/unimacro/BRAM_SINGLE_MACRO.v:2170]
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:10 . Memory (MB): peak = 1928.098 ; gain = 370.801 ; free physical = 6229 ; free virtual = 16669
+Synthesis current peak Physical Memory [PSS] (MB): peak = 1123.412; parent = 1000.650; children = 122.762
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 2947.969; parent = 1934.039; children = 1013.930
+---------------------------------------------------------------------------------
+INFO: [Synth 8-638] synthesizing module 'mb_usb_rst_clk_wiz_1_100M_0' [/home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.gen/sources_1/bd/mb_usb/ip/mb_usb_rst_clk_wiz_1_100M_0/synth/mb_usb_rst_clk_wiz_1_100M_0.vhd:74]
+	Parameter C_FAMILY bound to: spartan7 - type: string 
+	Parameter C_EXT_RST_WIDTH bound to: 4 - type: integer 
+	Parameter C_AUX_RST_WIDTH bound to: 4 - type: integer 
+	Parameter C_EXT_RESET_HIGH bound to: 1'b0 
+	Parameter C_AUX_RESET_HIGH bound to: 1'b0 
+	Parameter C_NUM_BUS_RST bound to: 1 - type: integer 
+	Parameter C_NUM_PERP_RST bound to: 1 - type: integer 
+	Parameter C_NUM_INTERCONNECT_ARESETN bound to: 1 - type: integer 
+	Parameter C_NUM_PERP_ARESETN bound to: 1 - type: integer 
+INFO: [Synth 8-3491] module 'proc_sys_reset' declared at '/home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.gen/sources_1/bd/mb_usb/ipshared/8842/hdl/proc_sys_reset_v5_0_vh_rfs.vhd:1264' bound to instance 'U0' of component 'proc_sys_reset' [/home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.gen/sources_1/bd/mb_usb/ip/mb_usb_rst_clk_wiz_1_100M_0/synth/mb_usb_rst_clk_wiz_1_100M_0.vhd:129]
+INFO: [Synth 8-638] synthesizing module 'proc_sys_reset' [/home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.gen/sources_1/bd/mb_usb/ipshared/8842/hdl/proc_sys_reset_v5_0_vh_rfs.vhd:1323]
+	Parameter INIT bound to: 1'b1 
+INFO: [Synth 8-113] binding component instance 'FDRE_inst' to cell 'FDRE' [/home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.gen/sources_1/bd/mb_usb/ipshared/8842/hdl/proc_sys_reset_v5_0_vh_rfs.vhd:1392]
+	Parameter INIT bound to: 1'b1 
+INFO: [Synth 8-113] binding component instance 'FDRE_BSR' to cell 'FDRE' [/home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.gen/sources_1/bd/mb_usb/ipshared/8842/hdl/proc_sys_reset_v5_0_vh_rfs.vhd:1408]
+	Parameter INIT bound to: 1'b0 
+INFO: [Synth 8-113] binding component instance 'FDRE_BSR_N' to cell 'FDRE' [/home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.gen/sources_1/bd/mb_usb/ipshared/8842/hdl/proc_sys_reset_v5_0_vh_rfs.vhd:1434]
+	Parameter INIT bound to: 1'b1 
+INFO: [Synth 8-113] binding component instance 'FDRE_PER' to cell 'FDRE' [/home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.gen/sources_1/bd/mb_usb/ipshared/8842/hdl/proc_sys_reset_v5_0_vh_rfs.vhd:1457]
+	Parameter INIT bound to: 1'b0 
+INFO: [Synth 8-113] binding component instance 'FDRE_PER_N' to cell 'FDRE' [/home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.gen/sources_1/bd/mb_usb/ipshared/8842/hdl/proc_sys_reset_v5_0_vh_rfs.vhd:1481]
+INFO: [Synth 8-638] synthesizing module 'lpf' [/home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.gen/sources_1/bd/mb_usb/ipshared/8842/hdl/proc_sys_reset_v5_0_vh_rfs.vhd:816]
+INFO: [Synth 8-3491] module 'SRL16' declared at '/tools/Xilinx/Vivado/2022.2/scripts/rt/data/unisim_comp.v:131628' bound to instance 'POR_SRL_I' of component 'SRL16' [/home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.gen/sources_1/bd/mb_usb/ipshared/8842/hdl/proc_sys_reset_v5_0_vh_rfs.vhd:868]
+INFO: [Synth 8-6157] synthesizing module 'SRL16' [/tools/Xilinx/Vivado/2022.2/scripts/rt/data/unisim_comp.v:131628]
+INFO: [Synth 8-6155] done synthesizing module 'SRL16' (0#1) [/tools/Xilinx/Vivado/2022.2/scripts/rt/data/unisim_comp.v:131628]
+INFO: [Synth 8-638] synthesizing module 'cdc_sync' [/home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.gen/sources_1/bd/mb_usb/ipshared/ef1e/hdl/lib_cdc_v1_0_rfs.vhd:106]
+	Parameter INIT bound to: 1'b0 
+INFO: [Synth 8-113] binding component instance 'CROSS_PLEVEL_IN2SCNDRY_IN_cdc_to' to cell 'FDR' [/home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.gen/sources_1/bd/mb_usb/ipshared/ef1e/hdl/lib_cdc_v1_0_rfs.vhd:514]
+	Parameter INIT bound to: 1'b0 
+INFO: [Synth 8-113] binding component instance 'CROSS_PLEVEL_IN2SCNDRY_s_level_out_d2' to cell 'FDR' [/home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.gen/sources_1/bd/mb_usb/ipshared/ef1e/hdl/lib_cdc_v1_0_rfs.vhd:545]
+	Parameter INIT bound to: 1'b0 
+INFO: [Synth 8-113] binding component instance 'CROSS_PLEVEL_IN2SCNDRY_s_level_out_d3' to cell 'FDR' [/home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.gen/sources_1/bd/mb_usb/ipshared/ef1e/hdl/lib_cdc_v1_0_rfs.vhd:554]
+	Parameter INIT bound to: 1'b0 
+INFO: [Synth 8-113] binding component instance 'CROSS_PLEVEL_IN2SCNDRY_s_level_out_d4' to cell 'FDR' [/home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.gen/sources_1/bd/mb_usb/ipshared/ef1e/hdl/lib_cdc_v1_0_rfs.vhd:564]
+	Parameter INIT bound to: 1'b0 
+INFO: [Synth 8-113] binding component instance 'CROSS_PLEVEL_IN2SCNDRY_s_level_out_d5' to cell 'FDR' [/home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.gen/sources_1/bd/mb_usb/ipshared/ef1e/hdl/lib_cdc_v1_0_rfs.vhd:574]
+	Parameter INIT bound to: 1'b0 
+INFO: [Synth 8-113] binding component instance 'CROSS_PLEVEL_IN2SCNDRY_s_level_out_d6' to cell 'FDR' [/home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.gen/sources_1/bd/mb_usb/ipshared/ef1e/hdl/lib_cdc_v1_0_rfs.vhd:584]
+INFO: [Synth 8-256] done synthesizing module 'cdc_sync' (0#1) [/home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.gen/sources_1/bd/mb_usb/ipshared/ef1e/hdl/lib_cdc_v1_0_rfs.vhd:106]
+INFO: [Synth 8-256] done synthesizing module 'lpf' (0#1) [/home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.gen/sources_1/bd/mb_usb/ipshared/8842/hdl/proc_sys_reset_v5_0_vh_rfs.vhd:816]
+INFO: [Synth 8-638] synthesizing module 'sequence_psr' [/home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.gen/sources_1/bd/mb_usb/ipshared/8842/hdl/proc_sys_reset_v5_0_vh_rfs.vhd:301]
+INFO: [Synth 8-638] synthesizing module 'upcnt_n' [/home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.gen/sources_1/bd/mb_usb/ipshared/8842/hdl/proc_sys_reset_v5_0_vh_rfs.vhd:125]
+INFO: [Synth 8-256] done synthesizing module 'upcnt_n' (0#1) [/home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.gen/sources_1/bd/mb_usb/ipshared/8842/hdl/proc_sys_reset_v5_0_vh_rfs.vhd:125]
+INFO: [Synth 8-256] done synthesizing module 'sequence_psr' (0#1) [/home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.gen/sources_1/bd/mb_usb/ipshared/8842/hdl/proc_sys_reset_v5_0_vh_rfs.vhd:301]
+INFO: [Synth 8-256] done synthesizing module 'proc_sys_reset' (0#1) [/home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.gen/sources_1/bd/mb_usb/ipshared/8842/hdl/proc_sys_reset_v5_0_vh_rfs.vhd:1323]
+INFO: [Synth 8-256] done synthesizing module 'mb_usb_rst_clk_wiz_1_100M_0' (0#1) [/home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.gen/sources_1/bd/mb_usb/ip/mb_usb_rst_clk_wiz_1_100M_0/synth/mb_usb_rst_clk_wiz_1_100M_0.vhd:74]
+WARNING: [Synth 8-7129] Port prmry_aclk in module cdc_sync is either unconnected or has no load
+WARNING: [Synth 8-7129] Port prmry_resetn in module cdc_sync is either unconnected or has no load
+WARNING: [Synth 8-7129] Port prmry_vect_in[1] in module cdc_sync is either unconnected or has no load
+WARNING: [Synth 8-7129] Port prmry_vect_in[0] in module cdc_sync is either unconnected or has no load
+WARNING: [Synth 8-7129] Port scndry_resetn in module cdc_sync is either unconnected or has no load
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:08 ; elapsed = 00:00:12 . Memory (MB): peak = 2002.004 ; gain = 444.707 ; free physical = 5671 ; free virtual = 16114
+Synthesis current peak Physical Memory [PSS] (MB): peak = 1133.456; parent = 1010.694; children = 122.762
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 3015.938; parent = 2002.008; children = 1013.930
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:08 ; elapsed = 00:00:12 . Memory (MB): peak = 2016.848 ; gain = 459.551 ; free physical = 5658 ; free virtual = 16101
+Synthesis current peak Physical Memory [PSS] (MB): peak = 1133.456; parent = 1010.694; children = 122.762
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 3030.781; parent = 2016.852; children = 1013.930
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:08 ; elapsed = 00:00:12 . Memory (MB): peak = 2016.848 ; gain = 459.551 ; free physical = 5665 ; free virtual = 16108
+Synthesis current peak Physical Memory [PSS] (MB): peak = 1133.456; parent = 1010.694; children = 122.762
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 3030.781; parent = 2016.852; children = 1013.930
+---------------------------------------------------------------------------------
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2022.785 ; gain = 0.000 ; free physical = 5683 ; free virtual = 16127
+INFO: [Netlist 29-17] Analyzing 13 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [/home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.gen/sources_1/bd/mb_usb/ip/mb_usb_rst_clk_wiz_1_100M_0/mb_usb_rst_clk_wiz_1_100M_0_ooc.xdc] for cell 'U0'
+Finished Parsing XDC File [/home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.gen/sources_1/bd/mb_usb/ip/mb_usb_rst_clk_wiz_1_100M_0/mb_usb_rst_clk_wiz_1_100M_0_ooc.xdc] for cell 'U0'
+Parsing XDC File [/home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.gen/sources_1/bd/mb_usb/ip/mb_usb_rst_clk_wiz_1_100M_0/mb_usb_rst_clk_wiz_1_100M_0_board.xdc] for cell 'U0'
+Finished Parsing XDC File [/home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.gen/sources_1/bd/mb_usb/ip/mb_usb_rst_clk_wiz_1_100M_0/mb_usb_rst_clk_wiz_1_100M_0_board.xdc] for cell 'U0'
+Parsing XDC File [/home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.gen/sources_1/bd/mb_usb/ip/mb_usb_rst_clk_wiz_1_100M_0/mb_usb_rst_clk_wiz_1_100M_0.xdc] for cell 'U0'
+Finished Parsing XDC File [/home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.gen/sources_1/bd/mb_usb/ip/mb_usb_rst_clk_wiz_1_100M_0/mb_usb_rst_clk_wiz_1_100M_0.xdc] for cell 'U0'
+Parsing XDC File [/home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.runs/mb_usb_rst_clk_wiz_1_100M_0_synth_1/dont_touch.xdc]
+Finished Parsing XDC File [/home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.runs/mb_usb_rst_clk_wiz_1_100M_0_synth_1/dont_touch.xdc]
+Completed Processing XDC Constraints
+
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2175.598 ; gain = 0.000 ; free physical = 5669 ; free virtual = 16116
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 13 instances were transformed.
+  FDR => FDRE: 12 instances
+  SRL16 => SRL16E: 1 instance 
+
+Constraint Validation Runtime : Time (s): cpu = 00:00:00.02 ; elapsed = 00:00:00.02 . Memory (MB): peak = 2175.598 ; gain = 0.000 ; free physical = 5668 ; free virtual = 16115
+INFO: [Designutils 20-5008] Incremental synthesis strategy off
+INFO: [Synth 8-11241] undeclared symbol 'REGCCE', assumed default net type 'wire' [/tools/Xilinx/Vivado/2022.2/data/verilog/src/unimacro/BRAM_SINGLE_MACRO.v:2170]
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:18 ; elapsed = 00:00:23 . Memory (MB): peak = 2175.598 ; gain = 618.301 ; free physical = 6221 ; free virtual = 16690
+Synthesis current peak Physical Memory [PSS] (MB): peak = 1133.456; parent = 1010.694; children = 122.762
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 3157.516; parent = 2143.586; children = 1013.930
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7s50csga324-1
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:18 ; elapsed = 00:00:23 . Memory (MB): peak = 2175.598 ; gain = 618.301 ; free physical = 6211 ; free virtual = 16679
+Synthesis current peak Physical Memory [PSS] (MB): peak = 1133.456; parent = 1010.694; children = 122.762
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 3157.516; parent = 2143.586; children = 1013.930
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+Applied set_property KEEP_HIERARCHY = SOFT for U0. (constraint file  /home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.runs/mb_usb_rst_clk_wiz_1_100M_0_synth_1/dont_touch.xdc, line 9).
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:18 ; elapsed = 00:00:23 . Memory (MB): peak = 2175.598 ; gain = 618.301 ; free physical = 6192 ; free virtual = 16658
+Synthesis current peak Physical Memory [PSS] (MB): peak = 1133.456; parent = 1010.694; children = 122.762
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 3157.516; parent = 2143.586; children = 1013.930
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:19 ; elapsed = 00:00:24 . Memory (MB): peak = 2175.598 ; gain = 618.301 ; free physical = 6342 ; free virtual = 16818
+Synthesis current peak Physical Memory [PSS] (MB): peak = 1133.456; parent = 1010.694; children = 122.762
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 3157.516; parent = 2143.586; children = 1013.930
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input    6 Bit       Adders := 1     
++---Registers : 
+	                6 Bit    Registers := 1     
+	                3 Bit    Registers := 3     
+	                1 Bit    Registers := 8     
++---Muxes : 
+	   2 Input    6 Bit        Muxes := 1     
+	   2 Input    1 Bit        Muxes := 1     
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 120 (col length:60)
+BRAMs: 150 (col length: RAMB18 60 RAMB36 30)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
+WARNING: [Synth 8-3332] Sequential element (EXT_LPF/ACTIVE_LOW_EXT.ACT_LO_EXT/GENERATE_LEVEL_P_S_CDC.SINGLE_BIT.CROSS_PLEVEL_IN2SCNDRY_s_level_out_d5) is unused and will be removed from module proc_sys_reset.
+WARNING: [Synth 8-3332] Sequential element (EXT_LPF/ACTIVE_LOW_EXT.ACT_LO_EXT/GENERATE_LEVEL_P_S_CDC.SINGLE_BIT.CROSS_PLEVEL_IN2SCNDRY_s_level_out_d6) is unused and will be removed from module proc_sys_reset.
+WARNING: [Synth 8-3332] Sequential element (EXT_LPF/ACTIVE_LOW_AUX.ACT_LO_AUX/GENERATE_LEVEL_P_S_CDC.SINGLE_BIT.CROSS_PLEVEL_IN2SCNDRY_s_level_out_d5) is unused and will be removed from module proc_sys_reset.
+WARNING: [Synth 8-3332] Sequential element (EXT_LPF/ACTIVE_LOW_AUX.ACT_LO_AUX/GENERATE_LEVEL_P_S_CDC.SINGLE_BIT.CROSS_PLEVEL_IN2SCNDRY_s_level_out_d6) is unused and will be removed from module proc_sys_reset.
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:20 ; elapsed = 00:00:25 . Memory (MB): peak = 2175.598 ; gain = 618.301 ; free physical = 6693 ; free virtual = 17185
+Synthesis current peak Physical Memory [PSS] (MB): peak = 1133.456; parent = 1010.694; children = 122.762
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 3157.516; parent = 2143.586; children = 1013.930
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:26 ; elapsed = 00:00:32 . Memory (MB): peak = 2175.598 ; gain = 618.301 ; free physical = 5908 ; free virtual = 16420
+Synthesis current peak Physical Memory [PSS] (MB): peak = 1188.490; parent = 1065.732; children = 122.762
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 3157.516; parent = 2143.586; children = 1013.930
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:26 ; elapsed = 00:00:32 . Memory (MB): peak = 2175.598 ; gain = 618.301 ; free physical = 5908 ; free virtual = 16420
+Synthesis current peak Physical Memory [PSS] (MB): peak = 1188.572; parent = 1065.814; children = 122.762
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 3157.516; parent = 2143.586; children = 1013.930
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:26 ; elapsed = 00:00:32 . Memory (MB): peak = 2175.598 ; gain = 618.301 ; free physical = 5844 ; free virtual = 16355
+Synthesis current peak Physical Memory [PSS] (MB): peak = 1188.710; parent = 1065.952; children = 122.762
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 3157.516; parent = 2143.586; children = 1013.930
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:00:32 ; elapsed = 00:00:38 . Memory (MB): peak = 2175.598 ; gain = 618.301 ; free physical = 6183 ; free virtual = 16704
+Synthesis current peak Physical Memory [PSS] (MB): peak = 1190.892; parent = 1067.029; children = 123.862
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 3157.516; parent = 2143.586; children = 1013.930
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:32 ; elapsed = 00:00:38 . Memory (MB): peak = 2175.598 ; gain = 618.301 ; free physical = 6165 ; free virtual = 16685
+Synthesis current peak Physical Memory [PSS] (MB): peak = 1190.892; parent = 1067.029; children = 123.862
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 3157.516; parent = 2143.586; children = 1013.930
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:32 ; elapsed = 00:00:38 . Memory (MB): peak = 2175.598 ; gain = 618.301 ; free physical = 6129 ; free virtual = 16650
+Synthesis current peak Physical Memory [PSS] (MB): peak = 1190.903; parent = 1067.041; children = 123.862
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 3157.516; parent = 2143.586; children = 1013.930
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:32 ; elapsed = 00:00:38 . Memory (MB): peak = 2175.598 ; gain = 618.301 ; free physical = 6117 ; free virtual = 16638
+Synthesis current peak Physical Memory [PSS] (MB): peak = 1190.927; parent = 1067.064; children = 123.862
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 3157.516; parent = 2143.586; children = 1013.930
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:32 ; elapsed = 00:00:38 . Memory (MB): peak = 2175.598 ; gain = 618.301 ; free physical = 6109 ; free virtual = 16630
+Synthesis current peak Physical Memory [PSS] (MB): peak = 1190.935; parent = 1067.072; children = 123.862
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 3157.516; parent = 2143.586; children = 1013.930
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:32 ; elapsed = 00:00:38 . Memory (MB): peak = 2175.598 ; gain = 618.301 ; free physical = 6100 ; free virtual = 16622
+Synthesis current peak Physical Memory [PSS] (MB): peak = 1190.938; parent = 1067.083; children = 123.862
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 3157.516; parent = 2143.586; children = 1013.930
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+------+------+
+|      |Cell  |Count |
++------+------+------+
+|1     |LUT1  |     5|
+|2     |LUT2  |     9|
+|3     |LUT3  |     1|
+|4     |LUT4  |     6|
+|5     |LUT5  |     3|
+|6     |LUT6  |     1|
+|7     |SRL16 |     1|
+|8     |FDR   |     8|
+|9     |FDRE  |    28|
+|10    |FDSE  |     4|
++------+------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:32 ; elapsed = 00:00:38 . Memory (MB): peak = 2175.598 ; gain = 618.301 ; free physical = 6106 ; free virtual = 16623
+Synthesis current peak Physical Memory [PSS] (MB): peak = 1190.976; parent = 1067.113; children = 123.862
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 3157.516; parent = 2143.586; children = 1013.930
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 5 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:30 ; elapsed = 00:00:35 . Memory (MB): peak = 2175.598 ; gain = 459.551 ; free physical = 6125 ; free virtual = 16650
+Synthesis Optimization Complete : Time (s): cpu = 00:00:32 ; elapsed = 00:00:38 . Memory (MB): peak = 2175.598 ; gain = 618.301 ; free physical = 6135 ; free virtual = 16660
+INFO: [Project 1-571] Translating synthesized netlist
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2175.598 ; gain = 0.000 ; free physical = 6135 ; free virtual = 16660
+INFO: [Netlist 29-17] Analyzing 9 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2175.598 ; gain = 0.000 ; free physical = 6477 ; free virtual = 16997
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 9 instances were transformed.
+  FDR => FDRE: 8 instances
+  SRL16 => SRL16E: 1 instance 
+
+Synth Design complete, checksum: 6b4550b
+INFO: [Common 17-83] Releasing license: Synthesis
+47 Infos, 10 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:40 ; elapsed = 00:00:44 . Memory (MB): peak = 2175.598 ; gain = 918.426 ; free physical = 6765 ; free virtual = 17285
+INFO: [Common 17-1381] The checkpoint '/home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.runs/mb_usb_rst_clk_wiz_1_100M_0_synth_1/mb_usb_rst_clk_wiz_1_100M_0.dcp' has been generated.
+INFO: [Coretcl 2-1648] Added synthesis output to IP cache for IP mb_usb_rst_clk_wiz_1_100M_0, cache-ID = 792adf34df1c7c56
+INFO: [Coretcl 2-1174] Renamed 6 cell refs.
+INFO: [Common 17-1381] The checkpoint '/home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.runs/mb_usb_rst_clk_wiz_1_100M_0_synth_1/mb_usb_rst_clk_wiz_1_100M_0.dcp' has been generated.
+INFO: [runtcl-4] Executing : report_utilization -file mb_usb_rst_clk_wiz_1_100M_0_utilization_synth.rpt -pb mb_usb_rst_clk_wiz_1_100M_0_utilization_synth.pb
+INFO: [Common 17-206] Exiting Vivado at Wed Nov 12 23:38:48 2025...

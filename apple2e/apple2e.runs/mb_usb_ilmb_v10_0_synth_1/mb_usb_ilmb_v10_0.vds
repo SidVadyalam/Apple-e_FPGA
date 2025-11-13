@@ -1,0 +1,22 @@
+#-----------------------------------------------------------
+# Vivado v2022.2 (64-bit)
+# SW Build 3671981 on Fri Oct 14 04:59:54 MDT 2022
+# IP Build 3669848 on Fri Oct 14 08:30:02 MDT 2022
+# Start of session at: Wed Nov 12 23:36:30 2025
+# Process ID: 148573
+# Current directory: /home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.runs/mb_usb_ilmb_v10_0_synth_1
+# Command line: vivado -log mb_usb_ilmb_v10_0.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source mb_usb_ilmb_v10_0.tcl
+# Log file: /home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.runs/mb_usb_ilmb_v10_0_synth_1/mb_usb_ilmb_v10_0.vds
+# Journal file: /home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.runs/mb_usb_ilmb_v10_0_synth_1/vivado.jou
+# Running On: reet-Lenovo-V15-G4-ABP, OS: Linux, CPU Frequency: 4020.976 MHz, CPU Physical cores: 16, Host memory: 39773 MB
+#-----------------------------------------------------------
+source mb_usb_ilmb_v10_0.tcl -notrace
+INFO: [IP_Flow 19-6924] IPCACHE: Running cache check for IP inst: mb_usb_ilmb_v10_0
+INFO: [IP_Flow 19-6922] IPCACHE: Exporting cached entry 8b859a7611e3417d to dir: /home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.runs/mb_usb_ilmb_v10_0_synth_1
+INFO: [IP_Flow 19-6928] IPCACHE: copied cached file /home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.cache/ip/2022.2/8/b/8b859a7611e3417d/mb_usb_dlmb_v10_0_stub.v to /home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.runs/mb_usb_ilmb_v10_0_synth_1/mb_usb_ilmb_v10_0_stub.v.
+INFO: [IP_Flow 19-6928] IPCACHE: copied cached file /home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.cache/ip/2022.2/8/b/8b859a7611e3417d/mb_usb_dlmb_v10_0.dcp to /home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.runs/mb_usb_ilmb_v10_0_synth_1/mb_usb_ilmb_v10_0.dcp.
+INFO: [IP_Flow 19-6928] IPCACHE: copied cached file /home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.cache/ip/2022.2/8/b/8b859a7611e3417d/mb_usb_dlmb_v10_0_sim_netlist.v to /home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.runs/mb_usb_ilmb_v10_0_synth_1/mb_usb_ilmb_v10_0_sim_netlist.v.
+INFO: [IP_Flow 19-6928] IPCACHE: copied cached file /home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.cache/ip/2022.2/8/b/8b859a7611e3417d/mb_usb_dlmb_v10_0_sim_netlist.vhdl to /home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.runs/mb_usb_ilmb_v10_0_synth_1/mb_usb_ilmb_v10_0_sim_netlist.vhdl.
+INFO: [IP_Flow 19-6928] IPCACHE: copied cached file /home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.cache/ip/2022.2/8/b/8b859a7611e3417d/mb_usb_dlmb_v10_0_stub.vhdl to /home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.runs/mb_usb_ilmb_v10_0_synth_1/mb_usb_ilmb_v10_0_stub.vhdl.
+INFO: [IP_Flow 19-4838] Using cached IP synthesis design for IP mb_usb_ilmb_v10_0, cache-ID = 8b859a7611e3417d.
+INFO: [Common 17-206] Exiting Vivado at Wed Nov 12 23:36:35 2025...

@@ -1,0 +1,7 @@
+{
+    "files.associations": {
+        "xtmrctr.h": "c",
+        "unistd.h": "c",
+        "xparameters.h": "c"
+    }
+}
