@@ -1,13 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xc7s50csga324-1" LaunchTime="1763044246" LaunchIncrCheckpoint="$PSRCDIR/utils_1/imports/synth_1/mb_usb_hdmi_top.dcp">
-  <File Type="RDS-DCP" Name="mb_usb_hdmi_top.dcp"/>
-  <File Type="PA-TCL" Name="mb_usb_hdmi_top.tcl"/>
-  <File Type="REPORTS-TCL" Name="mb_usb_hdmi_top_reports.tcl"/>
-  <File Type="RDS-RDS" Name="mb_usb_hdmi_top.vds"/>
+<GenRun Id="synth_1" LaunchPart="xc7s50csga324-1" LaunchTime="1764042856" LaunchIncrCheckpoint="$PSRCDIR/utils_1/imports/synth_1/mb_usb_hdmi_top.dcp">
+  <File Type="VDS-TIMINGSUMMARY" Name="top_module_timing_summary_synth.rpt"/>
+  <File Type="RDS-DCP" Name="top_module.dcp"/>
+  <File Type="RDS-UTIL-PB" Name="top_module_utilization_synth.pb"/>
+  <File Type="RDS-UTIL" Name="top_module_utilization_synth.rpt"/>
+  <File Type="RDS-PROPCONSTRS" Name="top_module_drc_synth.rpt"/>
+  <File Type="RDS-RDS" Name="top_module.vds"/>
+  <File Type="REPORTS-TCL" Name="top_module_reports.tcl"/>
+  <File Type="VDS-TIMING-PB" Name="top_module_timing_summary_synth.pb"/>
+  <File Type="PA-TCL" Name="top_module.tcl"/>
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1" RelGenDir="$PGENDIR/sources_1">
     <Filter Type="Srcs"/>
     <File Path="$PSRCDIR/sources_1/bd/mb_usb/mb_usb.bd">
       <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/design_source/VGA_controller.sv">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../lab6/lab6.srcs/sources_1/imports/design_source/VGA_controller.sv"/>
+        <Attr Name="ImportTime" Val="1702797402"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
@@ -22,19 +36,17 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PSRCDIR/sources_1/imports/design_source/mb_usb_hdmi_top.sv">
+    <File Path="$PSRCDIR/sources_1/imports/vhdl/T65_Pack.vhd">
       <FileInfo>
-        <Attr Name="ImportPath" Val="$PPRDIR/../../lab6/lab6.srcs/sources_1/imports/design_source/mb_usb_hdmi_top.sv"/>
-        <Attr Name="ImportTime" Val="1761068471"/>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../../../Downloads/t65/rtl/vhdl/T65_Pack.vhd"/>
+        <Attr Name="ImportTime" Val="1763007224"/>
         <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PSRCDIR/sources_1/imports/vhdl/T65_Pack.vhd">
+    <File Path="$PSRCDIR/sources_1/imports/vhdl/T65.vhd">
       <FileInfo>
-        <Attr Name="AutoDisabled" Val="1"/>
-        <Attr Name="ImportPath" Val="$PPRDIR/../../../../Downloads/t65/rtl/vhdl/T65_Pack.vhd"/>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../../../Downloads/t65/rtl/vhdl/T65.vhd"/>
         <Attr Name="ImportTime" Val="1763007224"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
@@ -42,7 +54,6 @@
     </File>
     <File Path="$PSRCDIR/sources_1/imports/vhdl/T65_ALU.vhd">
       <FileInfo>
-        <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="ImportPath" Val="$PPRDIR/../../../../Downloads/t65/rtl/vhdl/T65_ALU.vhd"/>
         <Attr Name="ImportTime" Val="1763007224"/>
         <Attr Name="UsedIn" Val="synthesis"/>
@@ -51,19 +62,26 @@
     </File>
     <File Path="$PSRCDIR/sources_1/imports/vhdl/T65_MCode.vhd">
       <FileInfo>
-        <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="ImportPath" Val="$PPRDIR/../../../../Downloads/t65/rtl/vhdl/T65_MCode.vhd"/>
         <Attr Name="ImportTime" Val="1763007224"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PSRCDIR/sources_1/imports/vhdl/T65.vhd">
+    <File Path="$PSRCDIR/sources_1/new/top_module.sv">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/design_source/mb_usb_hdmi_top.sv">
       <FileInfo>
         <Attr Name="AutoDisabled" Val="1"/>
-        <Attr Name="ImportPath" Val="$PPRDIR/../../../../Downloads/t65/rtl/vhdl/T65.vhd"/>
-        <Attr Name="ImportTime" Val="1763007224"/>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../lab6/lab6.srcs/sources_1/imports/design_source/mb_usb_hdmi_top.sv"/>
+        <Attr Name="ImportTime" Val="1761068471"/>
         <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
@@ -94,19 +112,83 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PSRCDIR/sources_1/imports/design_source/VGA_controller.sv">
+    <File Path="$PSRCDIR/sources_1/new/IOU.sv">
       <FileInfo>
         <Attr Name="AutoDisabled" Val="1"/>
-        <Attr Name="ImportPath" Val="$PPRDIR/../../lab6/lab6.srcs/sources_1/imports/design_source/VGA_controller.sv"/>
-        <Attr Name="ImportTime" Val="1702797402"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
+    <File Path="$PSRCDIR/sources_1/new/boot_rom.sv">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/MMU.sv">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/cpu6502.sv">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/apple2_64k.coe">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/t65_debug.sv">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/sdcard_init/sdcard_init.sv">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../../../Downloads/sdcard_init/sdcard_init.sv"/>
+        <Attr Name="ImportTime" Val="1605813754"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/sdcard_init/Common.vhd">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../../../Downloads/sdcard_init/Common.vhd"/>
+        <Attr Name="ImportTime" Val="1605560640"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/sdcard_init/SDCard.vhd">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../../../Downloads/sdcard_init/SDCard.vhd"/>
+        <Attr Name="ImportTime" Val="1605650878"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
     <Config>
       <Option Name="DesignMode" Val="RTL"/>
-      <Option Name="TopModule" Val="mb_usb_hdmi_top"/>
+      <Option Name="TopModule" Val="top_module"/>
     </Config>
   </FileSet>
   <FileSet Name="constrs_in" Type="Constrs" RelSrcDir="$PSRCDIR/constrs_1">
@@ -138,24 +220,28 @@
     </Config>
   </FileSet>
   <Strategy Version="1" Minor="2">
-    <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2022"/>
+    <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2022">
+      <Desc>Vivado Synthesis Defaults</Desc>
+    </StratHandle>
     <Step Id="synth_design"/>
   </Strategy>
+  <BlockFileSet Type="BlockSrcs" Name="mb_usb_axi_quad_spi_0_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="mb_usb_axi_gpio_0_1"/>
   <BlockFileSet Type="BlockSrcs" Name="mb_usb_axi_uartlite_0_0"/>
   <BlockFileSet Type="BlockSrcs" Name="mb_usb_clk_wiz_1_0"/>
-  <BlockFileSet Type="BlockSrcs" Name="mb_usb_ilmb_bram_if_cntlr_0"/>
-  <BlockFileSet Type="BlockSrcs" Name="mb_usb_ilmb_v10_0"/>
-  <BlockFileSet Type="BlockSrcs" Name="mb_usb_dlmb_bram_if_cntlr_0"/>
-  <BlockFileSet Type="BlockSrcs" Name="mb_usb_axi_gpio_0_1"/>
-  <BlockFileSet Type="BlockSrcs" Name="mb_usb_axi_gpio_0_2"/>
-  <BlockFileSet Type="BlockSrcs" Name="mb_usb_dlmb_v10_0"/>
-  <BlockFileSet Type="BlockSrcs" Name="mb_usb_microblaze_0_axi_intc_0"/>
-  <BlockFileSet Type="BlockSrcs" Name="mb_usb_lmb_bram_0"/>
-  <BlockFileSet Type="BlockSrcs" Name="mb_usb_rst_clk_wiz_1_100M_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="clk_wiz_0"/>
   <BlockFileSet Type="BlockSrcs" Name="mb_usb_axi_timer_0_0"/>
   <BlockFileSet Type="BlockSrcs" Name="mb_usb_mdm_1_0"/>
-  <BlockFileSet Type="BlockSrcs" Name="mb_usb_axi_quad_spi_0_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="mb_usb_microblaze_0_axi_intc_0"/>
   <BlockFileSet Type="BlockSrcs" Name="mb_usb_xbar_0"/>
-  <BlockFileSet Type="BlockSrcs" Name="mb_usb_microblaze_0_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="blk_mem_gen_64k"/>
+  <BlockFileSet Type="BlockSrcs" Name="mb_usb_rst_clk_wiz_1_100M_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="mb_usb_lmb_bram_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="mb_usb_dlmb_bram_if_cntlr_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="mb_usb_ilmb_bram_if_cntlr_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="mb_usb_ilmb_v10_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="mb_usb_axi_gpio_0_2"/>
+  <BlockFileSet Type="BlockSrcs" Name="mb_usb_dlmb_v10_0"/>
   <BlockFileSet Type="BlockSrcs" Name="mb_usb_axi_gpio_0_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="mb_usb_microblaze_0_0"/>
 </GenRun>

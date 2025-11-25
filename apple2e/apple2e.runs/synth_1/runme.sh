@@ -36,4 +36,4 @@ EAStep()
      fi
 }
 
-EAStep vivado -log mb_usb_hdmi_top.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source mb_usb_hdmi_top.tcl
+EAStep vivado -log top_module.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source top_module.tcl

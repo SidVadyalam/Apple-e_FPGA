@@ -57,10 +57,17 @@ module top_module(
         .hex_grid(hex_gridA)
     );
     
+    // hex_driver HexB (
+    //     .clk(Clk),
+    //     .reset(reset_ah),
+    //     .in({keycode0_gpio[15:12], keycode0_gpio[11:8], keycode0_gpio[7:4], keycode0_gpio[3:0]}),
+    //     .hex_seg(hex_segB),
+    //     .hex_grid(hex_gridB)
+    // );
     hex_driver HexB (
         .clk(Clk),
         .reset(reset_ah),
-        .in({keycode0_gpio[15:12], keycode0_gpio[11:8], keycode0_gpio[7:4], keycode0_gpio[3:0]}),
+        .in({ cpu_addr[15:12], cpu_addr[11:8], cpu_addr[7:4], cpu_addr[3:0] }),
         .hex_seg(hex_segB),
         .hex_grid(hex_gridB)
     );
@@ -89,6 +96,16 @@ module top_module(
         .locked(locked),
         .clk_in1(Clk)
     );
+
+    logic clk_50MHz;
+    // Generate 50 MHz clock from 100 MHz input
+    always_ff @(posedge clk_125MHz) begin
+        if (reset_ah) begin
+            clk_50MHz <= 1'b1;
+        end else begin
+            clk_50MHz <= ~clk_50MHz;
+        end
+    end
 
     logic cpu_clk;
     logic [2:0] clk_counter;
@@ -162,13 +179,13 @@ module top_module(
     wire kb_region  = (cpu_addr == 16'hC000);        // keyboard register
 
     wire [0:0] bram_we;
-    assign bram_we = (cpu_write && !rom_region && !kb_region) ? 1'b1 : 1'b0;
+    assign bram_we = (cpu_write) ? 1'b1 : 1'b0;
 
     wire [7:0] bram_dout;
 
     // NOTE: ensure this module name matches your generated IP
     blk_mem_gen_64k u_mem64k (
-        .clka  (cpu_clk),
+        .clka  (Clk),
         .ena   (1'b1),
         .wea   (bram_we),
         .addra (cpu_addr),

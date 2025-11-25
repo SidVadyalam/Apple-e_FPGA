@@ -6,4 +6,4 @@
 # Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 #
 
-vivado -log mb_usb_hdmi_top.vdi -applog -m64 -product Vivado -messageDb vivado.pb -mode batch -source mb_usb_hdmi_top.tcl -notrace
+vivado -log top_module.vdi -applog -m64 -product Vivado -messageDb vivado.pb -mode batch -source top_module.tcl -notrace

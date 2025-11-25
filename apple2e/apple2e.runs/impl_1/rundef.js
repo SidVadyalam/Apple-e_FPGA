@@ -29,7 +29,7 @@ eval( EAInclude(ISEJScriptLib) );
 // pre-commands:
 ISETouchFile( "init_design", "begin" );
 ISEStep( "vivado",
-         "-log mb_usb_hdmi_top.vdi -applog -m64 -product Vivado -messageDb vivado.pb -mode batch -source mb_usb_hdmi_top.tcl -notrace" );
+         "-log top_module.vdi -applog -m64 -product Vivado -messageDb vivado.pb -mode batch -source top_module.tcl -notrace" );
 
 
 
