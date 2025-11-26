@@ -1,73 +1,66 @@
-// t_65_debug_tb.sv
-`timescale 1ns/1ps
+`timescale 1ns / 1ps
 
 module t65_debug_tb;
 
-    logic clk_mem;
-    logic clk_cpu;
-    logic reset_n;
+    logic Clk;
+    logic reset_rtl_0;
 
-    logic [15:0] dbg_addr;
-    logic [7:0]  dbg_di;
-    logic [7:0]  dbg_do;
-    logic        dbg_we;
-    logic        dbg_sync;
+    // DUT
+    t65_debug dut (
+        .Clk         (Clk),
+        .reset_rtl_0 (reset_rtl_0)
+    );
 
-    // Clock: 10 ns period => 100 MHz
-    initial clk_mem = 0;
-    always #5 clk_mem = ~clk_mem;
+    // 100 MHz board clock (10 ns period)
+    initial begin
+        Clk = 1'b0;
+        forever #1 Clk = ~Clk;
+    end
 
-    logic [6:0] clk_div;
-    always_ff @(posedge clk_mem or negedge reset_n) begin
-        if (!reset_n) begin
-            clk_div <= 7'b0;
-            clk_cpu <= 1'b0;
+    // Reset: assert for 2 us, then deassert
+    initial begin
+        reset_rtl_0 = 1'b1;
+        #2000;                 // 2 us
+        reset_rtl_0 = 1'b0;
+    end
+
+    // --------------------------------------------------------------------
+    // CPU boot monitor: watch reset vector + first opcodes
+    // --------------------------------------------------------------------
+    int   sync_count = 0;
+
+    // Shorthands into DUT internals
+    wire        cpu_clk  = dut.cpu_clk;
+    wire        cpu_resn = dut.t65_res_n;
+    wire [15:0] cpu_addr = dut.cpu_addr;
+    wire [7:0]  cpu_di   = dut.t65_DI;
+    wire        cpu_sync = dut.t65_Sync;
+
+    always @(posedge cpu_clk) begin
+        if (!cpu_resn) begin
+            sync_count <= 0;
         end else begin
-            if(clk_div == 7'd99) begin
-                clk_cpu <= ~clk_cpu;
-                clk_div <= 7'b0;
-            end else begin
-                clk_div <= clk_div + 7'b1;
+            // Log reset vector bytes
+            if (cpu_addr == 16'hFFFC)
+                $display("[%0t] @FFFC (reset low)  = %02h", $time, cpu_di);
+            if (cpu_addr == 16'hFFFD)
+                $display("[%0t] @FFFD (reset high) = %02h", $time, cpu_di);
+
+            // Log first N opcode fetches (Sync=1)
+            if (cpu_sync && sync_count < 16) begin
+                sync_count++;
+                $display("[%0t] SYNC %0d: PC=%04h, opcode=%02h",
+                         $time, sync_count, cpu_addr, cpu_di);
             end
         end
     end
 
-    // Reset: assert for a bit at start
+    // --------------------------------------------------------------------
+    // Stop the sim after some time
+    // --------------------------------------------------------------------
     initial begin
-        reset_n = 0;
-        #200;
-        reset_n = 1;
-    end
-
-    t65_debug dut (
-        .clk_cpu      (clk_cpu),
-        .clk_mem      (clk_mem),
-        .reset_n  (reset_n),
-        .dbg_addr (dbg_addr),
-        .dbg_di   (dbg_di),
-        .dbg_do   (dbg_do),
-        .dbg_we   (dbg_we),
-        .dbg_sync (dbg_sync)
-    );
-
-    // Monitor opcode fetches (Sync=1 means opcode fetch)
-    always @(posedge clk_cpu) begin
-        if (reset_n && dbg_sync) begin
-            $display("%0t: FETCH @ %h = %h (we=%0d)",
-                     $time, dbg_addr, dbg_di, dbg_we);
-        end
-    end
-
-    always @(posedge clk_cpu) begin
-    if (reset_n && dbg_we) begin
-        $display("%0t: WRITE @ %h = %h",
-                 $time, dbg_addr, dbg_do);
-    end
-end
-
-    // Run for some time then stop
-    initial begin
-        #500000;   // adjust as needed
+        #10_000_000;  // 5 ms of sim time
+        $display("Simulation finished. sync_count = %0d", sync_count);
         $finish;
     end
 

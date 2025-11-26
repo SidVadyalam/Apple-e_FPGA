@@ -17,9 +17,9 @@ module apple2_video_simple (
 );
 
 
-    localparam int CHAR_W     = 8;
-    localparam int CHAR_H     = 8;
-    localparam logic [15:0] TEXT_BASE = 16'h0400; // Apple text page 1
+    // localparam int CHAR_W     = 8;
+    // localparam int CHAR_H     = 8;
+    // localparam logic [15:0] TEXT_BASE = 16'h0400; // Apple text page 1
 
     // -----------------------------------------------------------------------
     // Stage 0 (combinational): derive char cell & VRAM address for *next* pixel
@@ -37,33 +37,87 @@ module apple2_video_simple (
     logic [1:0] block;
     logic [15:0] text_addr_next;
 
+    localparam int TEXT_COLS      = 40;
+    localparam int TEXT_ROWS      = 24;
+    localparam int CHAR_W         = 8;
+    localparam int CHAR_H         = 8;
+    localparam int H_VISIBLE      = 640;
+    localparam int V_VISIBLE      = 480;
+    localparam int TEXT_PIX_W     = TEXT_COLS * CHAR_W;  // 320
+    localparam int TEXT_PIX_H     = TEXT_ROWS * CHAR_H;  // 192
+    localparam int H_MARGIN       = (H_VISIBLE - TEXT_PIX_W) / 2; // 160
+    localparam int V_MARGIN       = (V_VISIBLE - TEXT_PIX_H) / 2; // 144
+    localparam logic [15:0] TEXT_BASE = 16'h0400;
+
     always_comb begin
-        // Character cell coordinates
-        col_next       = drawX[9:3];  // /8
-        row_next       = drawY[9:3];  // /8
-        x_in_cell_next = drawX[2:0];  // 0..7
-        y_in_cell_next = drawY[2:0];  // 0..7
+        // Default
+        display_next   = 1'b0;
+        col_next       = '0;
+        row_next       = '0;
+        x_in_cell_next = '0;
+        y_in_cell_next = '0;
+        vram_addr_next = 16'h0000;
 
-        // Only display in 40x24 region inside active video
-        display_next = active_nblank &&
-                       (col_next < 6'd40) &&
-                       (row_next < 5'd24);
+        // Only care about active video
+        if (active_nblank) begin
+            // Check if current pixel is inside the 40x24 text window
+            if (drawX >= H_MARGIN && drawX < (H_MARGIN + TEXT_PIX_W) &&
+                drawY >= V_MARGIN && drawY < (V_MARGIN + TEXT_PIX_H)) begin
 
-        row_in_block = row_next[2:0];      // row % 8
-        block        = row_next[4:3];      // row / 8
+                // Convert to text-local coordinates
+                logic [9:0] localX = drawX - H_MARGIN;
+                logic [9:0] localY = drawY - V_MARGIN;
 
-        text_addr_next = TEXT_BASE
-                        + {row_in_block, 7'd0}    // (row % 8) * $80
-                        + block * 16'd40        // (row / 8) * 40
-                        + col_next;             // column
+                col_next       = localX[9:3];   // /8, 0..39
+                row_next       = localY[9:3];   // /8, 0..23
+                x_in_cell_next = localX[2:0];   // 0..7
+                y_in_cell_next = localY[2:0];   // 0..7
 
-        if (display_next) begin
-            vram_addr_next = text_addr_next;
-        end else begin
-            // Off-screen or blanking: don't care address
-            vram_addr_next = 16'h0000;
+                display_next   = 1'b1;
+
+                // Apple II layout:
+                // addr = $0400 + (row & 7)*$80 + (row >> 3)*40 + col
+                row_in_block   = row_next[2:0]; // row % 8
+                block          = row_next[4:3]; // row / 8
+
+                text_addr_next = TEXT_BASE
+                            + {row_in_block, 7'd0}   // (row % 8) * $80
+                            + block * 16'd40         // (row / 8) * 40
+                            + col_next;              // column
+
+                vram_addr_next = text_addr_next;
+            end
         end
     end
+
+
+    // always_comb begin
+    //     // Character cell coordinates
+    //     col_next       = drawX[9:3];  // /8
+    //     row_next       = drawY[9:3];  // /8
+    //     x_in_cell_next = drawX[2:0];  // 0..7
+    //     y_in_cell_next = drawY[2:0];  // 0..7
+
+    //     // Only display in 40x24 region inside active video
+    //     display_next = active_nblank &&
+    //                    (col_next < 6'd40) &&
+    //                    (row_next < 5'd24);
+
+    //     row_in_block = row_next[2:0];      // row % 8
+    //     block        = row_next[4:3];      // row / 8
+
+    //     text_addr_next = TEXT_BASE
+    //                     + {row_in_block, 7'd0}    // (row % 8) * $80
+    //                     + block * 16'd40        // (row / 8) * 40
+    //                     + col_next;             // column
+
+    //     if (display_next) begin
+    //         vram_addr_next = text_addr_next;
+    //     end else begin
+    //         // Off-screen or blanking: don't care address
+    //         vram_addr_next = 16'h0000;
+    //     end
+    // end
 
     // -----------------------------------------------------------------------
     // Stage 1: register address & char cell position; feed BRAM
@@ -135,7 +189,7 @@ module apple2_video_simple (
     always_comb begin
         if (display_s2) begin
             // MSB = leftmost pixel
-            pixel_on = glyph_bits[7 - x_in_cell_s2];
+            pixel_on = glyph_bits[x_in_cell_s2];
         end else begin
             pixel_on = 1'b0;
         end

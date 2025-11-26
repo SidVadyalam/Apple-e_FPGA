@@ -73,7 +73,7 @@ OPTRACE "synth_1" START { ROLLUP_AUTO }
 set_param xicom.use_bs_reader 1
 set_param chipscope.maxJobs 4
 set_param checkpoint.writeSynthRtdsInDcp 1
-set_param synth.incrementalSynthesisCache ./.Xil/Vivado-467880-reet-Lenovo-V15-G4-ABP/incrSyn
+set_msg_config -id {Common 17-41} -limit 10000000
 set_msg_config -id {Synth 8-256} -limit 10000
 set_msg_config -id {Synth 8-638} -limit 10000
 OPTRACE "Creating in-memory project" START { }
@@ -156,10 +156,10 @@ set_property used_in_implementation false [get_files -all /home/reet/Desktop/ECE
 set_property used_in_implementation false [get_files -all /home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.gen/sources_1/ip/clk_wiz_0/clk_wiz_0.xdc]
 set_property used_in_implementation false [get_files -all /home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.gen/sources_1/ip/clk_wiz_0/clk_wiz_0_ooc.xdc]
 
+read_ip -quiet /home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.srcs/sources_1/ip/hdmi_tx_0/hdmi_tx_0.xci
+
 read_ip -quiet /home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.srcs/sources_1/ip/blk_mem_gen_64k/blk_mem_gen_64k.xci
 set_property used_in_implementation false [get_files -all /home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.gen/sources_1/ip/blk_mem_gen_64k/blk_mem_gen_64k_ooc.xdc]
-
-read_ip -quiet /home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.srcs/sources_1/ip/hdmi_tx_0/hdmi_tx_0.xci
 
 OPTRACE "Adding files" END { }
 # Mark all dcp files as not used in implementation to prevent them from being

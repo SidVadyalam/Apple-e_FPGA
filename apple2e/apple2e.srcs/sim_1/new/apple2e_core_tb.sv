@@ -105,11 +105,19 @@ module apple2e_core_tb;
         end
     end
 
+    always @(posedge cpu_clk) begin
+    if (!t65_R_W_n &&
+        cpu_addr >= 16'h0400 && cpu_addr < 16'h0500) begin
+        $display("[%0t] WRITE text region: %04h <= %02h",
+                 $time, cpu_addr, t65_DO);
+    end
+    end
+
 
     // Stop the sim after some time
     initial begin
         // Run for e.g. 5 ms of CPU time (5000 cycles at 1 MHz)
-        #5_000_000;  // 5 ms = 5,000,000 ns
+        #50_000_000;  // 5 ms = 5,000,000 ns
 
         if (!first_sync_seen) begin
             $display("ERROR: Never saw Sync go high after reset.");

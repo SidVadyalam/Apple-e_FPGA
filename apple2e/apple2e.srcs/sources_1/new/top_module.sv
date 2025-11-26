@@ -46,7 +46,10 @@ module top_module(
         output logic [7:0] hex_segA,
         output logic [3:0] hex_gridA,
         output logic [7:0] hex_segB,
-        output logic [3:0] hex_gridB
+        output logic [3:0] hex_gridB,
+
+        //debug
+        output logic led
     );
 
     logic [31:0] keycode0_gpio, keycode1_gpio;
@@ -115,18 +118,23 @@ module top_module(
 
     logic cpu_clk;
     logic [2:0] clk_counter;
+    logic [23:0] counter;
     always_ff @(posedge clk_12_5MHz or posedge reset_ah) begin
         if (reset_ah) begin
             clk_counter <= 3'b0;
             cpu_clk <= 1'b0;
+            counter <= 24'b0;
         end else begin
             clk_counter <= clk_counter + 3'b001;
             if (clk_counter == 3'b101) begin
                 cpu_clk <= ~cpu_clk;
                 clk_counter <= 3'b0;
+                counter <= counter + 24'b1;
             end
         end
     end
+
+    assign led = counter[23];
 
     logic t65_res_n;
     assign t65_res_n = ~reset_ah & locked;

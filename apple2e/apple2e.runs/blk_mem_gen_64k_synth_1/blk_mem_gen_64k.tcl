@@ -73,6 +73,7 @@ OPTRACE "blk_mem_gen_64k_synth_1" START { ROLLUP_AUTO }
 set_param xicom.use_bs_reader 1
 set_param chipscope.maxJobs 4
 set_param checkpoint.writeSynthRtdsInDcp 1
+set_msg_config -id {Common 17-41} -limit 10000000
 set_msg_config -id {Synth 8-256} -limit 10000
 set_msg_config -id {Synth 8-638} -limit 10000
 set_param project.vivado.isBlockSynthRun true
@@ -89,6 +90,8 @@ set_property parent.project_path /home/reet/Desktop/ECE385/FinalProject/apple2e/
 set_property XPM_LIBRARIES {XPM_CDC XPM_FIFO XPM_MEMORY} [current_project]
 set_property default_lib xil_defaultlib [current_project]
 set_property target_language Verilog [current_project]
+set_property ip_repo_paths /home/reet/Downloads/hdmi_tx_1.0 [current_project]
+update_ip_catalog
 set_property ip_output_repo /home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.cache/ip [current_project]
 set_property ip_cache_permissions {read write} [current_project]
 OPTRACE "Creating in-memory project" END { }
