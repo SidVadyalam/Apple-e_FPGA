@@ -2,17 +2,17 @@
 # Vivado v2022.2 (64-bit)
 # SW Build 3671981 on Fri Oct 14 04:59:54 MDT 2022
 # IP Build 3669848 on Fri Oct 14 08:30:02 MDT 2022
-# Start of session at: Mon Nov 24 21:54:18 2025
-# Process ID: 714018
+# Start of session at: Tue Nov 25 18:47:34 2025
+# Process ID: 901830
 # Current directory: /home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.runs/synth_1
 # Command line: vivado -log top_module.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source top_module.tcl
 # Log file: /home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.runs/synth_1/top_module.vds
 # Journal file: /home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.runs/synth_1/vivado.jou
-# Running On: reet-Lenovo-V15-G4-ABP, OS: Linux, CPU Frequency: 400.000 MHz, CPU Physical cores: 16, Host memory: 39773 MB
+# Running On: reet-Lenovo-V15-G4-ABP, OS: Linux, CPU Frequency: 3919.861 MHz, CPU Physical cores: 16, Host memory: 39773 MB
 #-----------------------------------------------------------
 source top_module.tcl -notrace
 INFO: [IP_Flow 19-234] Refreshing IP repositories
-INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-1700] Loaded user IP repository '/home/reet/Downloads/hdmi_tx_1.0'.
 INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/tools/Xilinx/Vivado/2022.2/data/ip'.
 Command: read_checkpoint -auto_incremental -incremental /home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.srcs/utils_1/imports/synth_1/mb_usb_hdmi_top.dcp
 INFO: [Vivado 12-5825] Read reference checkpoint from /home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.srcs/utils_1/imports/synth_1/mb_usb_hdmi_top.dcp for incremental synthesis
@@ -29,12 +29,16 @@ INFO: [Designutils 20-5440] No compile time benefit to using incremental synthes
 INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
 INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 4 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 714049
+INFO: [Synth 8-7075] Helper process launched with PID 901898
 INFO: [Synth 8-11241] undeclared symbol 'REGCCE', assumed default net type 'wire' [/tools/Xilinx/Vivado/2022.2/data/verilog/src/unimacro/BRAM_SINGLE_MACRO.v:2170]
+INFO: [Synth 8-11241] undeclared symbol 'vram_addr', assumed default net type 'wire' [/home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.srcs/sources_1/new/top_module.sv:206]
+INFO: [Synth 8-11241] undeclared symbol 'vram_data', assumed default net type 'wire' [/home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.srcs/sources_1/new/top_module.sv:208]
+WARNING: [Synth 8-8895] 'vram_addr' is already implicitly declared on line 206 [/home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.srcs/sources_1/new/top_module.sv:227]
+WARNING: [Synth 8-8895] 'vram_data' is already implicitly declared on line 208 [/home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.srcs/sources_1/new/top_module.sv:228]
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:02 ; elapsed = 00:00:03 . Memory (MB): peak = 1955.648 ; gain = 372.770 ; free physical = 12253 ; free virtual = 25792
-Synthesis current peak Physical Memory [PSS] (MB): peak = 1381.726; parent = 1177.125; children = 204.601
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 2937.641; parent = 1962.590; children = 975.051
+Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 1955.551 ; gain = 370.770 ; free physical = 9351 ; free virtual = 23139
+Synthesis current peak Physical Memory [PSS] (MB): peak = 1381.990; parent = 1177.465; children = 204.525
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 2938.547; parent = 1963.492; children = 975.055
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-6157] synthesizing module 'top_module' [/home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.srcs/sources_1/new/top_module.sv:23]
 INFO: [Synth 8-6157] synthesizing module 'hex_driver' [/home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.srcs/sources_1/imports/design_source/hex_driver.sv:1]
@@ -48,22 +52,22 @@ INFO: [Synth 8-6157] synthesizing module 'nibble_to_hex' [/home/reet/Desktop/ECE
 INFO: [Synth 8-6155] done synthesizing module 'nibble_to_hex' (0#1) [/home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.srcs/sources_1/imports/design_source/hex_driver.sv:11]
 INFO: [Synth 8-6155] done synthesizing module 'hex_driver' (0#1) [/home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.srcs/sources_1/imports/design_source/hex_driver.sv:1]
 INFO: [Synth 8-6157] synthesizing module 'mb_usb' [/home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.gen/sources_1/bd/mb_usb/synth/mb_usb.v:936]
-INFO: [Synth 8-6157] synthesizing module 'mb_usb_axi_uartlite_0_0' [/home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.runs/synth_1/.Xil/Vivado-714018-reet-Lenovo-V15-G4-ABP/realtime/mb_usb_axi_uartlite_0_0_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'mb_usb_axi_uartlite_0_0' (0#1) [/home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.runs/synth_1/.Xil/Vivado-714018-reet-Lenovo-V15-G4-ABP/realtime/mb_usb_axi_uartlite_0_0_stub.v:5]
-INFO: [Synth 8-6157] synthesizing module 'mb_usb_clk_wiz_1_0' [/home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.runs/synth_1/.Xil/Vivado-714018-reet-Lenovo-V15-G4-ABP/realtime/mb_usb_clk_wiz_1_0_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'mb_usb_clk_wiz_1_0' (0#1) [/home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.runs/synth_1/.Xil/Vivado-714018-reet-Lenovo-V15-G4-ABP/realtime/mb_usb_clk_wiz_1_0_stub.v:5]
-INFO: [Synth 8-6157] synthesizing module 'mb_usb_axi_gpio_0_1' [/home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.runs/synth_1/.Xil/Vivado-714018-reet-Lenovo-V15-G4-ABP/realtime/mb_usb_axi_gpio_0_1_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'mb_usb_axi_gpio_0_1' (0#1) [/home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.runs/synth_1/.Xil/Vivado-714018-reet-Lenovo-V15-G4-ABP/realtime/mb_usb_axi_gpio_0_1_stub.v:5]
-INFO: [Synth 8-6157] synthesizing module 'mb_usb_axi_gpio_0_2' [/home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.runs/synth_1/.Xil/Vivado-714018-reet-Lenovo-V15-G4-ABP/realtime/mb_usb_axi_gpio_0_2_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'mb_usb_axi_gpio_0_2' (0#1) [/home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.runs/synth_1/.Xil/Vivado-714018-reet-Lenovo-V15-G4-ABP/realtime/mb_usb_axi_gpio_0_2_stub.v:5]
-INFO: [Synth 8-6157] synthesizing module 'mb_usb_axi_gpio_0_0' [/home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.runs/synth_1/.Xil/Vivado-714018-reet-Lenovo-V15-G4-ABP/realtime/mb_usb_axi_gpio_0_0_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'mb_usb_axi_gpio_0_0' (0#1) [/home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.runs/synth_1/.Xil/Vivado-714018-reet-Lenovo-V15-G4-ABP/realtime/mb_usb_axi_gpio_0_0_stub.v:5]
-INFO: [Synth 8-6157] synthesizing module 'mb_usb_mdm_1_0' [/home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.runs/synth_1/.Xil/Vivado-714018-reet-Lenovo-V15-G4-ABP/realtime/mb_usb_mdm_1_0_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'mb_usb_mdm_1_0' (0#1) [/home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.runs/synth_1/.Xil/Vivado-714018-reet-Lenovo-V15-G4-ABP/realtime/mb_usb_mdm_1_0_stub.v:5]
-INFO: [Synth 8-6157] synthesizing module 'mb_usb_microblaze_0_0' [/home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.runs/synth_1/.Xil/Vivado-714018-reet-Lenovo-V15-G4-ABP/realtime/mb_usb_microblaze_0_0_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'mb_usb_microblaze_0_0' (0#1) [/home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.runs/synth_1/.Xil/Vivado-714018-reet-Lenovo-V15-G4-ABP/realtime/mb_usb_microblaze_0_0_stub.v:5]
-INFO: [Synth 8-6157] synthesizing module 'mb_usb_microblaze_0_axi_intc_0' [/home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.runs/synth_1/.Xil/Vivado-714018-reet-Lenovo-V15-G4-ABP/realtime/mb_usb_microblaze_0_axi_intc_0_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'mb_usb_microblaze_0_axi_intc_0' (0#1) [/home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.runs/synth_1/.Xil/Vivado-714018-reet-Lenovo-V15-G4-ABP/realtime/mb_usb_microblaze_0_axi_intc_0_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'mb_usb_axi_uartlite_0_0' [/home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.runs/synth_1/.Xil/Vivado-901830-reet-Lenovo-V15-G4-ABP/realtime/mb_usb_axi_uartlite_0_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'mb_usb_axi_uartlite_0_0' (0#1) [/home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.runs/synth_1/.Xil/Vivado-901830-reet-Lenovo-V15-G4-ABP/realtime/mb_usb_axi_uartlite_0_0_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'mb_usb_clk_wiz_1_0' [/home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.runs/synth_1/.Xil/Vivado-901830-reet-Lenovo-V15-G4-ABP/realtime/mb_usb_clk_wiz_1_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'mb_usb_clk_wiz_1_0' (0#1) [/home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.runs/synth_1/.Xil/Vivado-901830-reet-Lenovo-V15-G4-ABP/realtime/mb_usb_clk_wiz_1_0_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'mb_usb_axi_gpio_0_1' [/home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.runs/synth_1/.Xil/Vivado-901830-reet-Lenovo-V15-G4-ABP/realtime/mb_usb_axi_gpio_0_1_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'mb_usb_axi_gpio_0_1' (0#1) [/home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.runs/synth_1/.Xil/Vivado-901830-reet-Lenovo-V15-G4-ABP/realtime/mb_usb_axi_gpio_0_1_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'mb_usb_axi_gpio_0_2' [/home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.runs/synth_1/.Xil/Vivado-901830-reet-Lenovo-V15-G4-ABP/realtime/mb_usb_axi_gpio_0_2_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'mb_usb_axi_gpio_0_2' (0#1) [/home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.runs/synth_1/.Xil/Vivado-901830-reet-Lenovo-V15-G4-ABP/realtime/mb_usb_axi_gpio_0_2_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'mb_usb_axi_gpio_0_0' [/home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.runs/synth_1/.Xil/Vivado-901830-reet-Lenovo-V15-G4-ABP/realtime/mb_usb_axi_gpio_0_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'mb_usb_axi_gpio_0_0' (0#1) [/home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.runs/synth_1/.Xil/Vivado-901830-reet-Lenovo-V15-G4-ABP/realtime/mb_usb_axi_gpio_0_0_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'mb_usb_mdm_1_0' [/home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.runs/synth_1/.Xil/Vivado-901830-reet-Lenovo-V15-G4-ABP/realtime/mb_usb_mdm_1_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'mb_usb_mdm_1_0' (0#1) [/home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.runs/synth_1/.Xil/Vivado-901830-reet-Lenovo-V15-G4-ABP/realtime/mb_usb_mdm_1_0_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'mb_usb_microblaze_0_0' [/home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.runs/synth_1/.Xil/Vivado-901830-reet-Lenovo-V15-G4-ABP/realtime/mb_usb_microblaze_0_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'mb_usb_microblaze_0_0' (0#1) [/home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.runs/synth_1/.Xil/Vivado-901830-reet-Lenovo-V15-G4-ABP/realtime/mb_usb_microblaze_0_0_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'mb_usb_microblaze_0_axi_intc_0' [/home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.runs/synth_1/.Xil/Vivado-901830-reet-Lenovo-V15-G4-ABP/realtime/mb_usb_microblaze_0_axi_intc_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'mb_usb_microblaze_0_axi_intc_0' (0#1) [/home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.runs/synth_1/.Xil/Vivado-901830-reet-Lenovo-V15-G4-ABP/realtime/mb_usb_microblaze_0_axi_intc_0_stub.v:5]
 INFO: [Synth 8-6157] synthesizing module 'mb_usb_microblaze_0_axi_periph_0' [/home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.gen/sources_1/bd/mb_usb/synth/mb_usb.v:1602]
 INFO: [Synth 8-6157] synthesizing module 'm00_couplers_imp_1CNVJ1L' [/home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.gen/sources_1/bd/mb_usb/synth/mb_usb.v:12]
 INFO: [Synth 8-6155] done synthesizing module 'm00_couplers_imp_1CNVJ1L' (0#1) [/home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.gen/sources_1/bd/mb_usb/synth/mb_usb.v:12]
@@ -81,27 +85,27 @@ INFO: [Synth 8-6157] synthesizing module 'm06_couplers_imp_1Y6O2J1' [/home/reet/
 INFO: [Synth 8-6155] done synthesizing module 'm06_couplers_imp_1Y6O2J1' (0#1) [/home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.gen/sources_1/bd/mb_usb/synth/mb_usb.v:804]
 INFO: [Synth 8-6157] synthesizing module 's00_couplers_imp_16FJ1YW' [/home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.gen/sources_1/bd/mb_usb/synth/mb_usb.v:2926]
 INFO: [Synth 8-6155] done synthesizing module 's00_couplers_imp_16FJ1YW' (0#1) [/home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.gen/sources_1/bd/mb_usb/synth/mb_usb.v:2926]
-INFO: [Synth 8-6157] synthesizing module 'mb_usb_xbar_0' [/home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.runs/synth_1/.Xil/Vivado-714018-reet-Lenovo-V15-G4-ABP/realtime/mb_usb_xbar_0_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'mb_usb_xbar_0' (0#1) [/home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.runs/synth_1/.Xil/Vivado-714018-reet-Lenovo-V15-G4-ABP/realtime/mb_usb_xbar_0_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'mb_usb_xbar_0' [/home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.runs/synth_1/.Xil/Vivado-901830-reet-Lenovo-V15-G4-ABP/realtime/mb_usb_xbar_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'mb_usb_xbar_0' (0#1) [/home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.runs/synth_1/.Xil/Vivado-901830-reet-Lenovo-V15-G4-ABP/realtime/mb_usb_xbar_0_stub.v:5]
 WARNING: [Synth 8-7071] port 'm_axi_awprot' of module 'mb_usb_xbar_0' is unconnected for instance 'xbar' [/home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.gen/sources_1/bd/mb_usb/synth/mb_usb.v:2651]
 WARNING: [Synth 8-7071] port 'm_axi_arprot' of module 'mb_usb_xbar_0' is unconnected for instance 'xbar' [/home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.gen/sources_1/bd/mb_usb/synth/mb_usb.v:2651]
 WARNING: [Synth 8-7023] instance 'xbar' of module 'mb_usb_xbar_0' has 40 connections declared, but only 38 given [/home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.gen/sources_1/bd/mb_usb/synth/mb_usb.v:2651]
 INFO: [Synth 8-6155] done synthesizing module 'mb_usb_microblaze_0_axi_periph_0' (0#1) [/home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.gen/sources_1/bd/mb_usb/synth/mb_usb.v:1602]
 INFO: [Synth 8-6157] synthesizing module 'microblaze_0_local_memory_imp_4XV58R' [/home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.gen/sources_1/bd/mb_usb/synth/mb_usb.v:2692]
-INFO: [Synth 8-6157] synthesizing module 'mb_usb_dlmb_bram_if_cntlr_0' [/home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.runs/synth_1/.Xil/Vivado-714018-reet-Lenovo-V15-G4-ABP/realtime/mb_usb_dlmb_bram_if_cntlr_0_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'mb_usb_dlmb_bram_if_cntlr_0' (0#1) [/home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.runs/synth_1/.Xil/Vivado-714018-reet-Lenovo-V15-G4-ABP/realtime/mb_usb_dlmb_bram_if_cntlr_0_stub.v:5]
-INFO: [Synth 8-6157] synthesizing module 'mb_usb_dlmb_v10_0' [/home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.runs/synth_1/.Xil/Vivado-714018-reet-Lenovo-V15-G4-ABP/realtime/mb_usb_dlmb_v10_0_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'mb_usb_dlmb_v10_0' (0#1) [/home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.runs/synth_1/.Xil/Vivado-714018-reet-Lenovo-V15-G4-ABP/realtime/mb_usb_dlmb_v10_0_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'mb_usb_dlmb_bram_if_cntlr_0' [/home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.runs/synth_1/.Xil/Vivado-901830-reet-Lenovo-V15-G4-ABP/realtime/mb_usb_dlmb_bram_if_cntlr_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'mb_usb_dlmb_bram_if_cntlr_0' (0#1) [/home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.runs/synth_1/.Xil/Vivado-901830-reet-Lenovo-V15-G4-ABP/realtime/mb_usb_dlmb_bram_if_cntlr_0_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'mb_usb_dlmb_v10_0' [/home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.runs/synth_1/.Xil/Vivado-901830-reet-Lenovo-V15-G4-ABP/realtime/mb_usb_dlmb_v10_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'mb_usb_dlmb_v10_0' (0#1) [/home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.runs/synth_1/.Xil/Vivado-901830-reet-Lenovo-V15-G4-ABP/realtime/mb_usb_dlmb_v10_0_stub.v:5]
 WARNING: [Synth 8-7071] port 'LMB_Rst' of module 'mb_usb_dlmb_v10_0' is unconnected for instance 'dlmb_v10' [/home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.gen/sources_1/bd/mb_usb/synth/mb_usb.v:2838]
 WARNING: [Synth 8-7023] instance 'dlmb_v10' of module 'mb_usb_dlmb_v10_0' has 25 connections declared, but only 24 given [/home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.gen/sources_1/bd/mb_usb/synth/mb_usb.v:2838]
-INFO: [Synth 8-6157] synthesizing module 'mb_usb_ilmb_bram_if_cntlr_0' [/home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.runs/synth_1/.Xil/Vivado-714018-reet-Lenovo-V15-G4-ABP/realtime/mb_usb_ilmb_bram_if_cntlr_0_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'mb_usb_ilmb_bram_if_cntlr_0' (0#1) [/home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.runs/synth_1/.Xil/Vivado-714018-reet-Lenovo-V15-G4-ABP/realtime/mb_usb_ilmb_bram_if_cntlr_0_stub.v:5]
-INFO: [Synth 8-6157] synthesizing module 'mb_usb_ilmb_v10_0' [/home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.runs/synth_1/.Xil/Vivado-714018-reet-Lenovo-V15-G4-ABP/realtime/mb_usb_ilmb_v10_0_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'mb_usb_ilmb_v10_0' (0#1) [/home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.runs/synth_1/.Xil/Vivado-714018-reet-Lenovo-V15-G4-ABP/realtime/mb_usb_ilmb_v10_0_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'mb_usb_ilmb_bram_if_cntlr_0' [/home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.runs/synth_1/.Xil/Vivado-901830-reet-Lenovo-V15-G4-ABP/realtime/mb_usb_ilmb_bram_if_cntlr_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'mb_usb_ilmb_bram_if_cntlr_0' (0#1) [/home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.runs/synth_1/.Xil/Vivado-901830-reet-Lenovo-V15-G4-ABP/realtime/mb_usb_ilmb_bram_if_cntlr_0_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'mb_usb_ilmb_v10_0' [/home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.runs/synth_1/.Xil/Vivado-901830-reet-Lenovo-V15-G4-ABP/realtime/mb_usb_ilmb_v10_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'mb_usb_ilmb_v10_0' (0#1) [/home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.runs/synth_1/.Xil/Vivado-901830-reet-Lenovo-V15-G4-ABP/realtime/mb_usb_ilmb_v10_0_stub.v:5]
 WARNING: [Synth 8-7071] port 'LMB_Rst' of module 'mb_usb_ilmb_v10_0' is unconnected for instance 'ilmb_v10' [/home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.gen/sources_1/bd/mb_usb/synth/mb_usb.v:2884]
 WARNING: [Synth 8-7023] instance 'ilmb_v10' of module 'mb_usb_ilmb_v10_0' has 25 connections declared, but only 24 given [/home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.gen/sources_1/bd/mb_usb/synth/mb_usb.v:2884]
-INFO: [Synth 8-6157] synthesizing module 'mb_usb_lmb_bram_0' [/home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.runs/synth_1/.Xil/Vivado-714018-reet-Lenovo-V15-G4-ABP/realtime/mb_usb_lmb_bram_0_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'mb_usb_lmb_bram_0' (0#1) [/home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.runs/synth_1/.Xil/Vivado-714018-reet-Lenovo-V15-G4-ABP/realtime/mb_usb_lmb_bram_0_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'mb_usb_lmb_bram_0' [/home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.runs/synth_1/.Xil/Vivado-901830-reet-Lenovo-V15-G4-ABP/realtime/mb_usb_lmb_bram_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'mb_usb_lmb_bram_0' (0#1) [/home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.runs/synth_1/.Xil/Vivado-901830-reet-Lenovo-V15-G4-ABP/realtime/mb_usb_lmb_bram_0_stub.v:5]
 WARNING: [Synth 8-7071] port 'rsta_busy' of module 'mb_usb_lmb_bram_0' is unconnected for instance 'lmb_bram' [/home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.gen/sources_1/bd/mb_usb/synth/mb_usb.v:2909]
 WARNING: [Synth 8-7071] port 'rstb_busy' of module 'mb_usb_lmb_bram_0' is unconnected for instance 'lmb_bram' [/home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.gen/sources_1/bd/mb_usb/synth/mb_usb.v:2909]
 WARNING: [Synth 8-7023] instance 'lmb_bram' of module 'mb_usb_lmb_bram_0' has 16 connections declared, but only 14 given [/home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.gen/sources_1/bd/mb_usb/synth/mb_usb.v:2909]
@@ -110,28 +114,28 @@ INFO: [Synth 8-6157] synthesizing module 'mb_usb_microblaze_0_xlconcat_0' [/home
 INFO: [Synth 8-6157] synthesizing module 'xlconcat_v2_1_4_xlconcat' [/home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.gen/sources_1/bd/mb_usb/ipshared/4b67/hdl/xlconcat_v2_1_vl_rfs.v:14]
 INFO: [Synth 8-6155] done synthesizing module 'xlconcat_v2_1_4_xlconcat' (0#1) [/home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.gen/sources_1/bd/mb_usb/ipshared/4b67/hdl/xlconcat_v2_1_vl_rfs.v:14]
 INFO: [Synth 8-6155] done synthesizing module 'mb_usb_microblaze_0_xlconcat_0' (0#1) [/home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.gen/sources_1/bd/mb_usb/ip/mb_usb_microblaze_0_xlconcat_0/synth/mb_usb_microblaze_0_xlconcat_0.v:53]
-INFO: [Synth 8-6157] synthesizing module 'mb_usb_rst_clk_wiz_1_100M_0' [/home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.runs/synth_1/.Xil/Vivado-714018-reet-Lenovo-V15-G4-ABP/realtime/mb_usb_rst_clk_wiz_1_100M_0_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'mb_usb_rst_clk_wiz_1_100M_0' (0#1) [/home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.runs/synth_1/.Xil/Vivado-714018-reet-Lenovo-V15-G4-ABP/realtime/mb_usb_rst_clk_wiz_1_100M_0_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'mb_usb_rst_clk_wiz_1_100M_0' [/home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.runs/synth_1/.Xil/Vivado-901830-reet-Lenovo-V15-G4-ABP/realtime/mb_usb_rst_clk_wiz_1_100M_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'mb_usb_rst_clk_wiz_1_100M_0' (0#1) [/home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.runs/synth_1/.Xil/Vivado-901830-reet-Lenovo-V15-G4-ABP/realtime/mb_usb_rst_clk_wiz_1_100M_0_stub.v:5]
 WARNING: [Synth 8-7071] port 'peripheral_reset' of module 'mb_usb_rst_clk_wiz_1_100M_0' is unconnected for instance 'rst_clk_wiz_1_100M' [/home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.gen/sources_1/bd/mb_usb/synth/mb_usb.v:1538]
 WARNING: [Synth 8-7071] port 'interconnect_aresetn' of module 'mb_usb_rst_clk_wiz_1_100M_0' is unconnected for instance 'rst_clk_wiz_1_100M' [/home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.gen/sources_1/bd/mb_usb/synth/mb_usb.v:1538]
 WARNING: [Synth 8-7023] instance 'rst_clk_wiz_1_100M' of module 'mb_usb_rst_clk_wiz_1_100M_0' has 10 connections declared, but only 8 given [/home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.gen/sources_1/bd/mb_usb/synth/mb_usb.v:1538]
-INFO: [Synth 8-6157] synthesizing module 'mb_usb_axi_quad_spi_0_0' [/home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.runs/synth_1/.Xil/Vivado-714018-reet-Lenovo-V15-G4-ABP/realtime/mb_usb_axi_quad_spi_0_0_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'mb_usb_axi_quad_spi_0_0' (0#1) [/home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.runs/synth_1/.Xil/Vivado-714018-reet-Lenovo-V15-G4-ABP/realtime/mb_usb_axi_quad_spi_0_0_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'mb_usb_axi_quad_spi_0_0' [/home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.runs/synth_1/.Xil/Vivado-901830-reet-Lenovo-V15-G4-ABP/realtime/mb_usb_axi_quad_spi_0_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'mb_usb_axi_quad_spi_0_0' (0#1) [/home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.runs/synth_1/.Xil/Vivado-901830-reet-Lenovo-V15-G4-ABP/realtime/mb_usb_axi_quad_spi_0_0_stub.v:5]
 WARNING: [Synth 8-7071] port 'io0_t' of module 'mb_usb_axi_quad_spi_0_0' is unconnected for instance 'spi_usb' [/home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.gen/sources_1/bd/mb_usb/synth/mb_usb.v:1547]
 WARNING: [Synth 8-7071] port 'io1_o' of module 'mb_usb_axi_quad_spi_0_0' is unconnected for instance 'spi_usb' [/home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.gen/sources_1/bd/mb_usb/synth/mb_usb.v:1547]
 WARNING: [Synth 8-7071] port 'io1_t' of module 'mb_usb_axi_quad_spi_0_0' is unconnected for instance 'spi_usb' [/home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.gen/sources_1/bd/mb_usb/synth/mb_usb.v:1547]
 WARNING: [Synth 8-7071] port 'sck_t' of module 'mb_usb_axi_quad_spi_0_0' is unconnected for instance 'spi_usb' [/home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.gen/sources_1/bd/mb_usb/synth/mb_usb.v:1547]
 WARNING: [Synth 8-7071] port 'ss_t' of module 'mb_usb_axi_quad_spi_0_0' is unconnected for instance 'spi_usb' [/home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.gen/sources_1/bd/mb_usb/synth/mb_usb.v:1547]
 WARNING: [Synth 8-7023] instance 'spi_usb' of module 'mb_usb_axi_quad_spi_0_0' has 33 connections declared, but only 28 given [/home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.gen/sources_1/bd/mb_usb/synth/mb_usb.v:1547]
-INFO: [Synth 8-6157] synthesizing module 'mb_usb_axi_timer_0_0' [/home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.runs/synth_1/.Xil/Vivado-714018-reet-Lenovo-V15-G4-ABP/realtime/mb_usb_axi_timer_0_0_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'mb_usb_axi_timer_0_0' (0#1) [/home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.runs/synth_1/.Xil/Vivado-714018-reet-Lenovo-V15-G4-ABP/realtime/mb_usb_axi_timer_0_0_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'mb_usb_axi_timer_0_0' [/home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.runs/synth_1/.Xil/Vivado-901830-reet-Lenovo-V15-G4-ABP/realtime/mb_usb_axi_timer_0_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'mb_usb_axi_timer_0_0' (0#1) [/home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.runs/synth_1/.Xil/Vivado-901830-reet-Lenovo-V15-G4-ABP/realtime/mb_usb_axi_timer_0_0_stub.v:5]
 WARNING: [Synth 8-7071] port 'generateout0' of module 'mb_usb_axi_timer_0_0' is unconnected for instance 'timer_usb_axi' [/home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.gen/sources_1/bd/mb_usb/synth/mb_usb.v:1576]
 WARNING: [Synth 8-7071] port 'generateout1' of module 'mb_usb_axi_timer_0_0' is unconnected for instance 'timer_usb_axi' [/home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.gen/sources_1/bd/mb_usb/synth/mb_usb.v:1576]
 WARNING: [Synth 8-7071] port 'pwm0' of module 'mb_usb_axi_timer_0_0' is unconnected for instance 'timer_usb_axi' [/home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.gen/sources_1/bd/mb_usb/synth/mb_usb.v:1576]
 WARNING: [Synth 8-7023] instance 'timer_usb_axi' of module 'mb_usb_axi_timer_0_0' has 26 connections declared, but only 23 given [/home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.gen/sources_1/bd/mb_usb/synth/mb_usb.v:1576]
 INFO: [Synth 8-6155] done synthesizing module 'mb_usb' (0#1) [/home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.gen/sources_1/bd/mb_usb/synth/mb_usb.v:936]
-INFO: [Synth 8-6157] synthesizing module 'clk_wiz_0' [/home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.runs/synth_1/.Xil/Vivado-714018-reet-Lenovo-V15-G4-ABP/realtime/clk_wiz_0_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'clk_wiz_0' (0#1) [/home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.runs/synth_1/.Xil/Vivado-714018-reet-Lenovo-V15-G4-ABP/realtime/clk_wiz_0_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'clk_wiz_0' [/home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.runs/synth_1/.Xil/Vivado-901830-reet-Lenovo-V15-G4-ABP/realtime/clk_wiz_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'clk_wiz_0' (0#1) [/home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.runs/synth_1/.Xil/Vivado-901830-reet-Lenovo-V15-G4-ABP/realtime/clk_wiz_0_stub.v:5]
 INFO: [Synth 8-638] synthesizing module 'T65' [/home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.srcs/sources_1/imports/vhdl/T65.vhd:84]
 INFO: [Synth 8-3491] module 'T65_MCode' declared at '/home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.srcs/sources_1/imports/vhdl/T65_MCode.vhd:59' bound to instance 'mcode' of component 'T65_MCode' [/home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.srcs/sources_1/imports/vhdl/T65.vhd:166]
 INFO: [Synth 8-638] synthesizing module 'T65_MCode' [/home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.srcs/sources_1/imports/vhdl/T65_MCode.vhd:92]
@@ -141,14 +145,26 @@ INFO: [Synth 8-3491] module 'T65_ALU' declared at '/home/reet/Desktop/ECE385/Fin
 INFO: [Synth 8-638] synthesizing module 'T65_ALU' [/home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.srcs/sources_1/imports/vhdl/T65_ALU.vhd:67]
 INFO: [Synth 8-256] done synthesizing module 'T65_ALU' (0#1) [/home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.srcs/sources_1/imports/vhdl/T65_ALU.vhd:67]
 INFO: [Synth 8-256] done synthesizing module 'T65' (0#1) [/home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.srcs/sources_1/imports/vhdl/T65.vhd:84]
-INFO: [Synth 8-6157] synthesizing module 'blk_mem_gen_64k' [/home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.runs/synth_1/.Xil/Vivado-714018-reet-Lenovo-V15-G4-ABP/realtime/blk_mem_gen_64k_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'blk_mem_gen_64k' (0#1) [/home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.runs/synth_1/.Xil/Vivado-714018-reet-Lenovo-V15-G4-ABP/realtime/blk_mem_gen_64k_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'blk_mem_gen_64k' [/home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.runs/synth_1/.Xil/Vivado-901830-reet-Lenovo-V15-G4-ABP/realtime/blk_mem_gen_64k_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'blk_mem_gen_64k' (0#1) [/home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.runs/synth_1/.Xil/Vivado-901830-reet-Lenovo-V15-G4-ABP/realtime/blk_mem_gen_64k_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'apple2_video_simple' [/home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.srcs/sources_1/new/apple2_video_simple.sv:1]
+INFO: [Synth 8-6157] synthesizing module 'char_rom' [/home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.srcs/sources_1/new/char_rom.sv:2]
+INFO: [Synth 8-3876] $readmem data file 'font.mem' is read successfully [/home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.srcs/sources_1/new/char_rom.sv:19]
+INFO: [Synth 8-6155] done synthesizing module 'char_rom' (0#1) [/home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.srcs/sources_1/new/char_rom.sv:2]
+INFO: [Synth 8-6155] done synthesizing module 'apple2_video_simple' (0#1) [/home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.srcs/sources_1/new/apple2_video_simple.sv:1]
 INFO: [Synth 8-6157] synthesizing module 'vga_controller' [/home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.srcs/sources_1/imports/design_source/VGA_controller.sv:26]
 INFO: [Synth 8-6155] done synthesizing module 'vga_controller' (0#1) [/home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.srcs/sources_1/imports/design_source/VGA_controller.sv:26]
-WARNING: [Synth 8-7071] port 'sync' of module 'vga_controller' is unconnected for instance 'vga' [/home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.srcs/sources_1/new/top_module.sv:209]
-WARNING: [Synth 8-7023] instance 'vga' of module 'vga_controller' has 8 connections declared, but only 7 given [/home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.srcs/sources_1/new/top_module.sv:209]
+WARNING: [Synth 8-7071] port 'sync' of module 'vga_controller' is unconnected for instance 'vga' [/home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.srcs/sources_1/new/top_module.sv:245]
+WARNING: [Synth 8-7023] instance 'vga' of module 'vga_controller' has 8 connections declared, but only 7 given [/home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.srcs/sources_1/new/top_module.sv:245]
+INFO: [Synth 8-6157] synthesizing module 'hdmi_tx_0' [/home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.runs/synth_1/.Xil/Vivado-901830-reet-Lenovo-V15-G4-ABP/realtime/hdmi_tx_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'hdmi_tx_0' (0#1) [/home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.runs/synth_1/.Xil/Vivado-901830-reet-Lenovo-V15-G4-ABP/realtime/hdmi_tx_0_stub.v:5]
 INFO: [Synth 8-6155] done synthesizing module 'top_module' (0#1) [/home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.srcs/sources_1/new/top_module.sv:23]
 WARNING: [Synth 8-6014] Unused sequential element D_reg was removed.  [/home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.srcs/sources_1/imports/vhdl/T65.vhd:215]
+WARNING: [Synth 8-6014] Unused sequential element y_in_cell_s2_reg was removed.  [/home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.srcs/sources_1/new/apple2_video_simple.sv:108]
+WARNING: [Synth 8-6014] Unused sequential element clk_50MHz_reg was removed.  [/home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.srcs/sources_1/new/top_module.sv:110]
+WARNING: [Synth 8-7129] Port drawX[9] in module apple2_video_simple is either unconnected or has no load
+WARNING: [Synth 8-7129] Port drawY[9] in module apple2_video_simple is either unconnected or has no load
+WARNING: [Synth 8-7129] Port drawY[8] in module apple2_video_simple is either unconnected or has no load
 WARNING: [Synth 8-7129] Port Mode[1] in module T65_ALU is either unconnected or has no load
 WARNING: [Synth 8-7129] Port Mode[0] in module T65_ALU is either unconnected or has no load
 WARNING: [Synth 8-7129] Port P[5] in module T65_MCode is either unconnected or has no load
@@ -246,29 +262,26 @@ WARNING: [Synth 8-7129] Port In90[0] in module xlconcat_v2_1_4_xlconcat is eithe
 WARNING: [Synth 8-7129] Port In91[0] in module xlconcat_v2_1_4_xlconcat is either unconnected or has no load
 WARNING: [Synth 8-7129] Port In92[0] in module xlconcat_v2_1_4_xlconcat is either unconnected or has no load
 WARNING: [Synth 8-7129] Port In93[0] in module xlconcat_v2_1_4_xlconcat is either unconnected or has no load
-WARNING: [Synth 8-7129] Port In94[0] in module xlconcat_v2_1_4_xlconcat is either unconnected or has no load
-WARNING: [Synth 8-7129] Port In95[0] in module xlconcat_v2_1_4_xlconcat is either unconnected or has no load
-WARNING: [Synth 8-7129] Port In96[0] in module xlconcat_v2_1_4_xlconcat is either unconnected or has no load
 INFO: [Common 17-14] Message 'Synth 8-7129' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 2047.555 ; gain = 464.676 ; free physical = 12151 ; free virtual = 25691
-Synthesis current peak Physical Memory [PSS] (MB): peak = 1381.726; parent = 1177.125; children = 204.601
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 3022.609; parent = 2047.559; children = 975.051
+Finished RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 2048.457 ; gain = 463.676 ; free physical = 9246 ; free virtual = 23035
+Synthesis current peak Physical Memory [PSS] (MB): peak = 1381.990; parent = 1177.465; children = 204.525
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 3023.516; parent = 2048.461; children = 975.055
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 2065.367 ; gain = 482.488 ; free physical = 12150 ; free virtual = 25691
-Synthesis current peak Physical Memory [PSS] (MB): peak = 1381.726; parent = 1177.125; children = 204.601
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 3040.422; parent = 2065.371; children = 975.051
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 2066.270 ; gain = 481.488 ; free physical = 9246 ; free virtual = 23035
+Synthesis current peak Physical Memory [PSS] (MB): peak = 1381.990; parent = 1177.465; children = 204.525
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 3041.328; parent = 2066.273; children = 975.055
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 2065.367 ; gain = 482.488 ; free physical = 12150 ; free virtual = 25691
-Synthesis current peak Physical Memory [PSS] (MB): peak = 1381.726; parent = 1177.125; children = 204.601
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 3040.422; parent = 2065.371; children = 975.051
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 2066.270 ; gain = 481.488 ; free physical = 9245 ; free virtual = 23034
+Synthesis current peak Physical Memory [PSS] (MB): peak = 1381.990; parent = 1177.465; children = 204.525
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 3041.328; parent = 2066.273; children = 975.055
 ---------------------------------------------------------------------------------
-Netlist sorting complete. Time (s): cpu = 00:00:00.02 ; elapsed = 00:00:00.02 . Memory (MB): peak = 2065.367 ; gain = 0.000 ; free physical = 12155 ; free virtual = 25695
+Netlist sorting complete. Time (s): cpu = 00:00:00.03 ; elapsed = 00:00:00.02 . Memory (MB): peak = 2066.270 ; gain = 0.000 ; free physical = 9245 ; free virtual = 23033
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
@@ -312,6 +325,8 @@ WARNING: [Constraints 18-619] A clock with name 'Clk' already exists, overwritin
 Finished Parsing XDC File [/home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.gen/sources_1/ip/clk_wiz_0/clk_wiz_0/clk_wiz_0_in_context.xdc] for cell 'clk_wiz'
 Parsing XDC File [/home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.gen/sources_1/ip/blk_mem_gen_64k/blk_mem_gen_64k/blk_mem_gen_64k_in_context.xdc] for cell 'u_mem64k'
 Finished Parsing XDC File [/home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.gen/sources_1/ip/blk_mem_gen_64k/blk_mem_gen_64k/blk_mem_gen_64k_in_context.xdc] for cell 'u_mem64k'
+Parsing XDC File [/home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.gen/sources_1/ip/hdmi_tx_0/hdmi_tx_0/hdmi_tx_0_in_context.xdc] for cell 'vga_to_hdmi'
+Finished Parsing XDC File [/home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.gen/sources_1/ip/hdmi_tx_0/hdmi_tx_0/hdmi_tx_0_in_context.xdc] for cell 'vga_to_hdmi'
 Parsing XDC File [/home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.srcs/constrs_1/imports/pin_assignment/mb_usb_hdmi_top.xdc]
 CRITICAL WARNING: [Constraints 18-1056] Clock 'clk_100' completely overrides clock 'Clk'.
 New: create_clock -period 10.000 -name clk_100 -waveform {0.000 5.000} [get_ports Clk], [/home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.srcs/constrs_1/imports/pin_assignment/mb_usb_hdmi_top.xdc:1]
@@ -324,11 +339,11 @@ Parsing XDC File [/home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.runs/sy
 Finished Parsing XDC File [/home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.runs/synth_1/dont_touch.xdc]
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2226.117 ; gain = 0.000 ; free physical = 12158 ; free virtual = 25698
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2225.020 ; gain = 0.000 ; free physical = 9227 ; free virtual = 23021
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00 . Memory (MB): peak = 2226.117 ; gain = 0.000 ; free physical = 12158 ; free virtual = 25698
+Constraint Validation Runtime : Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2225.020 ; gain = 0.000 ; free physical = 9227 ; free virtual = 23021
 WARNING: [Timing 38-316] Clock period '20.000' specified during out-of-context synthesis of instance 'u_mem64k' at clock pin 'clka' is different from the actual clock period '10.000', this can lead to different synthesis results.
 WARNING: [Timing 38-316] Clock period '20.000' specified during out-of-context synthesis of instance 'mb_block_i/spi_usb' at clock pin 'ext_spi_clk' is different from the actual clock period '10.000', this can lead to different synthesis results.
 WARNING: [Timing 38-316] Clock period '20.000' specified during out-of-context synthesis of instance 'mb_block_i/microblaze_0_local_memory/lmb_bram' at clock pin 'clka' is different from the actual clock period '10.000', this can lead to different synthesis results.
@@ -336,24 +351,40 @@ INFO: [Designutils 20-5440] No compile time benefit to using incremental synthes
 INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
 INFO: [Synth 8-11241] undeclared symbol 'REGCCE', assumed default net type 'wire' [/tools/Xilinx/Vivado/2022.2/data/verilog/src/unimacro/BRAM_SINGLE_MACRO.v:2170]
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 2226.117 ; gain = 643.238 ; free physical = 12222 ; free virtual = 25763
-Synthesis current peak Physical Memory [PSS] (MB): peak = 1381.726; parent = 1177.125; children = 204.601
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 3169.156; parent = 2194.105; children = 975.051
+Finished Constraint Validation : Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 2225.020 ; gain = 640.238 ; free physical = 9339 ; free virtual = 23131
+Synthesis current peak Physical Memory [PSS] (MB): peak = 1393.436; parent = 1188.921; children = 204.525
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 3168.062; parent = 2193.008; children = 975.055
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7s50csga324-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 2226.117 ; gain = 643.238 ; free physical = 12222 ; free virtual = 25763
-Synthesis current peak Physical Memory [PSS] (MB): peak = 1381.726; parent = 1177.125; children = 204.601
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 3169.156; parent = 2194.105; children = 975.051
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 2225.020 ; gain = 640.238 ; free physical = 9339 ; free virtual = 23131
+Synthesis current peak Physical Memory [PSS] (MB): peak = 1393.436; parent = 1188.921; children = 204.525
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 3168.062; parent = 2193.008; children = 975.055
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
 Applied set_property IO_BUFFER_TYPE = NONE for Clk. (constraint file  /home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.gen/sources_1/ip/clk_wiz_0/clk_wiz_0/clk_wiz_0_in_context.xdc, line 5).
 Applied set_property CLOCK_BUFFER_TYPE = NONE for Clk. (constraint file  /home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.gen/sources_1/ip/clk_wiz_0/clk_wiz_0/clk_wiz_0_in_context.xdc, line 6).
+Applied set_property IO_BUFFER_TYPE = NONE for hdmi_tmds_clk_n. (constraint file  /home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.gen/sources_1/ip/hdmi_tx_0/hdmi_tx_0/hdmi_tx_0_in_context.xdc, line 1).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for hdmi_tmds_clk_n. (constraint file  /home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.gen/sources_1/ip/hdmi_tx_0/hdmi_tx_0/hdmi_tx_0_in_context.xdc, line 2).
+Applied set_property IO_BUFFER_TYPE = NONE for hdmi_tmds_clk_p. (constraint file  /home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.gen/sources_1/ip/hdmi_tx_0/hdmi_tx_0/hdmi_tx_0_in_context.xdc, line 3).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for hdmi_tmds_clk_p. (constraint file  /home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.gen/sources_1/ip/hdmi_tx_0/hdmi_tx_0/hdmi_tx_0_in_context.xdc, line 4).
+Applied set_property IO_BUFFER_TYPE = NONE for hdmi_tmds_data_n[0]. (constraint file  /home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.gen/sources_1/ip/hdmi_tx_0/hdmi_tx_0/hdmi_tx_0_in_context.xdc, line 5).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for hdmi_tmds_data_n[0]. (constraint file  /home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.gen/sources_1/ip/hdmi_tx_0/hdmi_tx_0/hdmi_tx_0_in_context.xdc, line 6).
+Applied set_property IO_BUFFER_TYPE = NONE for hdmi_tmds_data_n[1]. (constraint file  /home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.gen/sources_1/ip/hdmi_tx_0/hdmi_tx_0/hdmi_tx_0_in_context.xdc, line 7).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for hdmi_tmds_data_n[1]. (constraint file  /home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.gen/sources_1/ip/hdmi_tx_0/hdmi_tx_0/hdmi_tx_0_in_context.xdc, line 8).
+Applied set_property IO_BUFFER_TYPE = NONE for hdmi_tmds_data_n[2]. (constraint file  /home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.gen/sources_1/ip/hdmi_tx_0/hdmi_tx_0/hdmi_tx_0_in_context.xdc, line 9).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for hdmi_tmds_data_n[2]. (constraint file  /home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.gen/sources_1/ip/hdmi_tx_0/hdmi_tx_0/hdmi_tx_0_in_context.xdc, line 10).
+Applied set_property IO_BUFFER_TYPE = NONE for hdmi_tmds_data_p[0]. (constraint file  /home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.gen/sources_1/ip/hdmi_tx_0/hdmi_tx_0/hdmi_tx_0_in_context.xdc, line 11).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for hdmi_tmds_data_p[0]. (constraint file  /home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.gen/sources_1/ip/hdmi_tx_0/hdmi_tx_0/hdmi_tx_0_in_context.xdc, line 12).
+Applied set_property IO_BUFFER_TYPE = NONE for hdmi_tmds_data_p[1]. (constraint file  /home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.gen/sources_1/ip/hdmi_tx_0/hdmi_tx_0/hdmi_tx_0_in_context.xdc, line 13).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for hdmi_tmds_data_p[1]. (constraint file  /home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.gen/sources_1/ip/hdmi_tx_0/hdmi_tx_0/hdmi_tx_0_in_context.xdc, line 14).
+Applied set_property IO_BUFFER_TYPE = NONE for hdmi_tmds_data_p[2]. (constraint file  /home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.gen/sources_1/ip/hdmi_tx_0/hdmi_tx_0/hdmi_tx_0_in_context.xdc, line 15).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for hdmi_tmds_data_p[2]. (constraint file  /home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.gen/sources_1/ip/hdmi_tx_0/hdmi_tx_0/hdmi_tx_0_in_context.xdc, line 16).
 Applied set_property KEEP_HIERARCHY = SOFT for mb_block_i. (constraint file  auto generated constraint).
 Applied set_property KEEP_HIERARCHY = SOFT for mb_block_i/microblaze_0. (constraint file  auto generated constraint).
 Applied set_property KEEP_HIERARCHY = SOFT for mb_block_i/microblaze_0_local_memory/dlmb_v10. (constraint file  auto generated constraint).
@@ -376,15 +407,16 @@ Applied set_property KEEP_HIERARCHY = SOFT for mb_block_i/timer_usb_axi. (constr
 Applied set_property KEEP_HIERARCHY = SOFT for mb_block_i/spi_usb. (constraint file  auto generated constraint).
 Applied set_property KEEP_HIERARCHY = SOFT for clk_wiz. (constraint file  auto generated constraint).
 Applied set_property KEEP_HIERARCHY = SOFT for u_mem64k. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for vga_to_hdmi. (constraint file  auto generated constraint).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 2226.117 ; gain = 643.238 ; free physical = 12227 ; free virtual = 25768
-Synthesis current peak Physical Memory [PSS] (MB): peak = 1381.726; parent = 1177.125; children = 204.601
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 3169.156; parent = 2194.105; children = 975.051
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 2225.020 ; gain = 640.238 ; free physical = 9349 ; free virtual = 23141
+Synthesis current peak Physical Memory [PSS] (MB): peak = 1393.436; parent = 1188.921; children = 204.525
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 3168.062; parent = 2193.008; children = 975.055
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:09 ; elapsed = 00:00:10 . Memory (MB): peak = 2226.117 ; gain = 643.238 ; free physical = 12237 ; free virtual = 25778
-Synthesis current peak Physical Memory [PSS] (MB): peak = 1381.726; parent = 1177.125; children = 204.601
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 3169.156; parent = 2194.105; children = 975.051
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:11 ; elapsed = 00:00:13 . Memory (MB): peak = 2225.020 ; gain = 640.238 ; free physical = 9372 ; free virtual = 23164
+Synthesis current peak Physical Memory [PSS] (MB): peak = 1393.436; parent = 1188.921; children = 204.525
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 3168.062; parent = 2193.008; children = 975.055
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start RTL Component Statistics 
@@ -405,18 +437,19 @@ Detailed RTL Component Info :
 	   2 Input      8 Bit         XORs := 1     
 	   2 Input      1 Bit         XORs := 3     
 +---Registers : 
-	               16 Bit    Registers := 5     
+	               16 Bit    Registers := 6     
 	               10 Bit    Registers := 2     
 	                9 Bit    Registers := 1     
-	                8 Bit    Registers := 8     
-	                4 Bit    Registers := 1     
-	                3 Bit    Registers := 3     
+	                8 Bit    Registers := 9     
+	                4 Bit    Registers := 2     
+	                3 Bit    Registers := 7     
 	                2 Bit    Registers := 2     
-	                1 Bit    Registers := 13    
+	                1 Bit    Registers := 17    
 +---Muxes : 
 	   4 Input   24 Bit        Muxes := 1     
 	   2 Input   16 Bit        Muxes := 5     
 	   4 Input   16 Bit        Muxes := 2     
+	   2 Input   14 Bit        Muxes := 1     
 	   2 Input    9 Bit        Muxes := 4     
 	   4 Input    9 Bit        Muxes := 2     
 	   3 Input    9 Bit        Muxes := 1     
@@ -427,7 +460,7 @@ Detailed RTL Component Info :
 	   2 Input    7 Bit        Muxes := 2     
 	   2 Input    5 Bit        Muxes := 3     
 	   5 Input    4 Bit        Muxes := 3     
-	   2 Input    4 Bit        Muxes := 6     
+	   2 Input    4 Bit        Muxes := 7     
 	   4 Input    4 Bit        Muxes := 2     
 	   3 Input    4 Bit        Muxes := 1     
 	  16 Input    3 Bit        Muxes := 3     
@@ -477,34 +510,49 @@ WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
 WARNING: [Synth 8-3917] design top_module has port hex_segA[7] driven by constant 1
 WARNING: [Synth 8-3917] design top_module has port hex_segB[7] driven by constant 1
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:13 ; elapsed = 00:00:15 . Memory (MB): peak = 2226.117 ; gain = 643.238 ; free physical = 12236 ; free virtual = 25783
-Synthesis current peak Physical Memory [PSS] (MB): peak = 1381.726; parent = 1177.125; children = 204.601
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 3169.156; parent = 2194.105; children = 975.051
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:20 ; elapsed = 00:00:22 . Memory (MB): peak = 2225.020 ; gain = 640.238 ; free physical = 9515 ; free virtual = 23312
+Synthesis current peak Physical Memory [PSS] (MB): peak = 1425.985; parent = 1221.502; children = 204.525
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 3168.062; parent = 2193.008; children = 975.055
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+
+ROM: Preliminary Mapping Report
++------------+------------+---------------+----------------+
+|Module Name | RTL Object | Depth x Width | Implemented As | 
++------------+------------+---------------+----------------+
+|char_rom    | rom        | 2048x7        | LUT            | 
+|top_module  | p_0_out    | 2048x7        | LUT            | 
++------------+------------+---------------+----------------+
+
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 WARNING: [Synth 8-565] redefining clock 'Clk'
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:16 ; elapsed = 00:00:18 . Memory (MB): peak = 2226.117 ; gain = 643.238 ; free physical = 12165 ; free virtual = 25712
-Synthesis current peak Physical Memory [PSS] (MB): peak = 1483.346; parent = 1278.787; children = 204.601
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 3169.156; parent = 2194.105; children = 975.051
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:23 ; elapsed = 00:00:25 . Memory (MB): peak = 2225.020 ; gain = 640.238 ; free physical = 9439 ; free virtual = 23241
+Synthesis current peak Physical Memory [PSS] (MB): peak = 1485.927; parent = 1281.443; children = 204.525
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 3168.062; parent = 2193.008; children = 975.055
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:19 ; elapsed = 00:00:21 . Memory (MB): peak = 2226.117 ; gain = 643.238 ; free physical = 12112 ; free virtual = 25659
-Synthesis current peak Physical Memory [PSS] (MB): peak = 1536.494; parent = 1331.936; children = 204.601
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 3169.156; parent = 2194.105; children = 975.051
+Finished Timing Optimization : Time (s): cpu = 00:00:26 ; elapsed = 00:00:29 . Memory (MB): peak = 2225.020 ; gain = 640.238 ; free physical = 9388 ; free virtual = 23186
+Synthesis current peak Physical Memory [PSS] (MB): peak = 1525.540; parent = 1321.057; children = 204.525
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 3168.062; parent = 2193.008; children = 975.055
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:19 ; elapsed = 00:00:22 . Memory (MB): peak = 2226.117 ; gain = 643.238 ; free physical = 12104 ; free virtual = 25651
-Synthesis current peak Physical Memory [PSS] (MB): peak = 1536.494; parent = 1331.936; children = 204.601
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 3169.156; parent = 2194.105; children = 975.051
+Finished Technology Mapping : Time (s): cpu = 00:00:27 ; elapsed = 00:00:30 . Memory (MB): peak = 2225.020 ; gain = 640.238 ; free physical = 9367 ; free virtual = 23164
+Synthesis current peak Physical Memory [PSS] (MB): peak = 1525.540; parent = 1321.057; children = 204.525
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 3168.062; parent = 2193.008; children = 975.055
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start IO Insertion
@@ -522,49 +570,49 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:22 ; elapsed = 00:00:24 . Memory (MB): peak = 2226.117 ; gain = 643.238 ; free physical = 12114 ; free virtual = 25661
-Synthesis current peak Physical Memory [PSS] (MB): peak = 1536.494; parent = 1331.936; children = 204.601
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 3169.156; parent = 2194.105; children = 975.051
+Finished IO Insertion : Time (s): cpu = 00:00:30 ; elapsed = 00:00:33 . Memory (MB): peak = 2225.020 ; gain = 640.238 ; free physical = 9369 ; free virtual = 23172
+Synthesis current peak Physical Memory [PSS] (MB): peak = 1525.540; parent = 1321.057; children = 204.525
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 3168.062; parent = 2193.008; children = 975.055
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:22 ; elapsed = 00:00:24 . Memory (MB): peak = 2226.117 ; gain = 643.238 ; free physical = 12114 ; free virtual = 25661
-Synthesis current peak Physical Memory [PSS] (MB): peak = 1536.494; parent = 1331.936; children = 204.601
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 3169.156; parent = 2194.105; children = 975.051
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:30 ; elapsed = 00:00:33 . Memory (MB): peak = 2225.020 ; gain = 640.238 ; free physical = 9373 ; free virtual = 23176
+Synthesis current peak Physical Memory [PSS] (MB): peak = 1525.540; parent = 1321.057; children = 204.525
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 3168.062; parent = 2193.008; children = 975.055
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:22 ; elapsed = 00:00:24 . Memory (MB): peak = 2226.117 ; gain = 643.238 ; free physical = 12114 ; free virtual = 25661
-Synthesis current peak Physical Memory [PSS] (MB): peak = 1536.494; parent = 1331.936; children = 204.601
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 3169.156; parent = 2194.105; children = 975.051
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:30 ; elapsed = 00:00:33 . Memory (MB): peak = 2225.020 ; gain = 640.238 ; free physical = 9366 ; free virtual = 23169
+Synthesis current peak Physical Memory [PSS] (MB): peak = 1525.540; parent = 1321.057; children = 204.525
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 3168.062; parent = 2193.008; children = 975.055
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:22 ; elapsed = 00:00:24 . Memory (MB): peak = 2226.117 ; gain = 643.238 ; free physical = 12114 ; free virtual = 25661
-Synthesis current peak Physical Memory [PSS] (MB): peak = 1536.494; parent = 1331.936; children = 204.601
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 3169.156; parent = 2194.105; children = 975.051
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:30 ; elapsed = 00:00:33 . Memory (MB): peak = 2225.020 ; gain = 640.238 ; free physical = 9366 ; free virtual = 23169
+Synthesis current peak Physical Memory [PSS] (MB): peak = 1525.540; parent = 1321.057; children = 204.525
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 3168.062; parent = 2193.008; children = 975.055
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:22 ; elapsed = 00:00:24 . Memory (MB): peak = 2226.117 ; gain = 643.238 ; free physical = 12114 ; free virtual = 25661
-Synthesis current peak Physical Memory [PSS] (MB): peak = 1536.494; parent = 1331.936; children = 204.601
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 3169.156; parent = 2194.105; children = 975.051
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:30 ; elapsed = 00:00:33 . Memory (MB): peak = 2225.020 ; gain = 640.238 ; free physical = 9367 ; free virtual = 23170
+Synthesis current peak Physical Memory [PSS] (MB): peak = 1525.540; parent = 1321.057; children = 204.525
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 3168.062; parent = 2193.008; children = 975.055
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:22 ; elapsed = 00:00:24 . Memory (MB): peak = 2226.117 ; gain = 643.238 ; free physical = 12114 ; free virtual = 25661
-Synthesis current peak Physical Memory [PSS] (MB): peak = 1536.494; parent = 1331.936; children = 204.601
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 3169.156; parent = 2194.105; children = 975.051
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:30 ; elapsed = 00:00:33 . Memory (MB): peak = 2225.020 ; gain = 640.238 ; free physical = 9367 ; free virtual = 23170
+Synthesis current peak Physical Memory [PSS] (MB): peak = 1525.540; parent = 1321.057; children = 204.525
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 3168.062; parent = 2193.008; children = 975.055
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -593,6 +641,7 @@ Report BlackBoxes:
 |17    |mb_usb_lmb_bram_0              |         1|
 |18    |clk_wiz_0                      |         1|
 |19    |blk_mem_gen_64k                |         1|
+|20    |hdmi_tx_0                      |         1|
 +------+-------------------------------+----------+
 
 Report Cell Usage: 
@@ -601,61 +650,63 @@ Report Cell Usage:
 +------+-----------------------------+------+
 |1     |blk_mem_gen_64k              |     1|
 |2     |clk_wiz                      |     1|
-|3     |mb_usb_axi_gpio_0            |     3|
-|6     |mb_usb_axi_quad_spi_0        |     1|
-|7     |mb_usb_axi_timer_0           |     1|
-|8     |mb_usb_axi_uartlite_0        |     1|
-|9     |mb_usb_clk_wiz_1             |     1|
-|10    |mb_usb_dlmb_bram_if_cntlr    |     1|
-|11    |mb_usb_dlmb_v10              |     1|
-|12    |mb_usb_ilmb_bram_if_cntlr    |     1|
-|13    |mb_usb_ilmb_v10              |     1|
-|14    |mb_usb_lmb_bram              |     1|
-|15    |mb_usb_mdm_1                 |     1|
-|16    |mb_usb_microblaze_0          |     1|
-|17    |mb_usb_microblaze_0_axi_intc |     1|
-|18    |mb_usb_rst_clk_wiz_1_100M    |     1|
-|19    |mb_usb_xbar                  |     1|
-|20    |BUFG                         |     1|
-|21    |CARRY4                       |    23|
-|22    |LUT1                         |     8|
-|23    |LUT2                         |    70|
-|24    |LUT3                         |    61|
-|25    |LUT4                         |    56|
-|26    |LUT5                         |   135|
-|27    |LUT6                         |   265|
-|28    |MUXF7                        |    10|
-|29    |FDCE                         |    95|
-|30    |FDPE                         |     4|
-|31    |FDRE                         |    49|
-|32    |IBUF                         |     4|
-|33    |OBUF                         |    29|
+|3     |hdmi_tx                      |     1|
+|4     |mb_usb_axi_gpio_0            |     3|
+|7     |mb_usb_axi_quad_spi_0        |     1|
+|8     |mb_usb_axi_timer_0           |     1|
+|9     |mb_usb_axi_uartlite_0        |     1|
+|10    |mb_usb_clk_wiz_1             |     1|
+|11    |mb_usb_dlmb_bram_if_cntlr    |     1|
+|12    |mb_usb_dlmb_v10              |     1|
+|13    |mb_usb_ilmb_bram_if_cntlr    |     1|
+|14    |mb_usb_ilmb_v10              |     1|
+|15    |mb_usb_lmb_bram              |     1|
+|16    |mb_usb_mdm_1                 |     1|
+|17    |mb_usb_microblaze_0          |     1|
+|18    |mb_usb_microblaze_0_axi_intc |     1|
+|19    |mb_usb_rst_clk_wiz_1_100M    |     1|
+|20    |mb_usb_xbar                  |     1|
+|21    |BUFG                         |     1|
+|22    |CARRY4                       |    23|
+|23    |LUT1                         |     7|
+|24    |LUT2                         |    70|
+|25    |LUT3                         |    65|
+|26    |LUT4                         |    70|
+|27    |LUT5                         |   145|
+|28    |LUT6                         |   349|
+|29    |MUXF7                        |    43|
+|30    |MUXF8                        |    15|
+|31    |FDCE                         |   151|
+|32    |FDPE                         |     6|
+|33    |FDRE                         |    49|
+|34    |IBUF                         |     4|
+|35    |OBUF                         |    29|
 +------+-----------------------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:22 ; elapsed = 00:00:24 . Memory (MB): peak = 2226.117 ; gain = 643.238 ; free physical = 12114 ; free virtual = 25661
-Synthesis current peak Physical Memory [PSS] (MB): peak = 1536.494; parent = 1331.936; children = 204.601
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 3169.156; parent = 2194.105; children = 975.051
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:30 ; elapsed = 00:00:33 . Memory (MB): peak = 2225.020 ; gain = 640.238 ; free physical = 9367 ; free virtual = 23170
+Synthesis current peak Physical Memory [PSS] (MB): peak = 1525.540; parent = 1321.057; children = 204.525
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 3168.062; parent = 2193.008; children = 975.055
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 0 critical warnings and 27 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:20 ; elapsed = 00:00:23 . Memory (MB): peak = 2226.117 ; gain = 482.488 ; free physical = 12134 ; free virtual = 25682
-Synthesis Optimization Complete : Time (s): cpu = 00:00:22 ; elapsed = 00:00:25 . Memory (MB): peak = 2226.117 ; gain = 643.238 ; free physical = 12134 ; free virtual = 25682
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:28 ; elapsed = 00:00:31 . Memory (MB): peak = 2225.020 ; gain = 481.488 ; free physical = 9407 ; free virtual = 23210
+Synthesis Optimization Complete : Time (s): cpu = 00:00:30 ; elapsed = 00:00:33 . Memory (MB): peak = 2225.020 ; gain = 640.238 ; free physical = 9405 ; free virtual = 23208
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2226.117 ; gain = 0.000 ; free physical = 12247 ; free virtual = 25795
-INFO: [Netlist 29-17] Analyzing 33 Unisim elements for replacement
+Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.02 . Memory (MB): peak = 2225.020 ; gain = 0.000 ; free physical = 9516 ; free virtual = 23319
+INFO: [Netlist 29-17] Analyzing 81 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-140] Inserted 1 IBUFs to IO ports without IO buffers.
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2226.117 ; gain = 0.000 ; free physical = 12247 ; free virtual = 25795
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2225.020 ; gain = 0.000 ; free physical = 9476 ; free virtual = 23279
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Synth Design complete, checksum: c9156e08
+Synth Design complete, checksum: a170056c
 INFO: [Common 17-83] Releasing license: Synthesis
-115 Infos, 135 Warnings, 1 Critical Warnings and 0 Errors encountered.
+124 Infos, 139 Warnings, 1 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:26 ; elapsed = 00:00:27 . Memory (MB): peak = 2226.117 ; gain = 903.426 ; free physical = 12434 ; free virtual = 25982
+synth_design: Time (s): cpu = 00:00:35 ; elapsed = 00:00:36 . Memory (MB): peak = 2225.020 ; gain = 905.395 ; free physical = 9706 ; free virtual = 23505
 INFO: [runtcl-6] Synthesis results are not added to the cache due to CRITICAL_WARNING
 INFO: [Common 17-1381] The checkpoint '/home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.runs/synth_1/top_module.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file top_module_utilization_synth.rpt -pb top_module_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Mon Nov 24 21:54:52 2025...
+INFO: [Common 17-206] Exiting Vivado at Tue Nov 25 18:48:19 2025...

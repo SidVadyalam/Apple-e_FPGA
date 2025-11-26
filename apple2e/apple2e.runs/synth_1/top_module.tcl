@@ -88,13 +88,18 @@ set_property parent.project_path /home/reet/Desktop/ECE385/FinalProject/apple2e/
 set_property XPM_LIBRARIES {XPM_CDC XPM_FIFO XPM_MEMORY} [current_project]
 set_property default_lib xil_defaultlib [current_project]
 set_property target_language Verilog [current_project]
+set_property ip_repo_paths /home/reet/Downloads/hdmi_tx_1.0 [current_project]
+update_ip_catalog
 set_property ip_output_repo /home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.cache/ip [current_project]
 set_property ip_cache_permissions {read write} [current_project]
 OPTRACE "Creating in-memory project" END { }
 OPTRACE "Adding files" START { }
 add_files /home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.srcs/sources_1/new/apple2_64k.coe
+read_mem /home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.srcs/sources_1/new/font.mem
 read_verilog -library xil_defaultlib -sv {
   /home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.srcs/sources_1/imports/design_source/VGA_controller.sv
+  /home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.srcs/sources_1/new/apple2_video_simple.sv
+  /home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.srcs/sources_1/new/char_rom.sv
   /home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.srcs/sources_1/imports/design_source/hex_driver.sv
   /home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.srcs/sources_1/new/top_module.sv
 }
@@ -153,6 +158,8 @@ set_property used_in_implementation false [get_files -all /home/reet/Desktop/ECE
 
 read_ip -quiet /home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.srcs/sources_1/ip/blk_mem_gen_64k/blk_mem_gen_64k.xci
 set_property used_in_implementation false [get_files -all /home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.gen/sources_1/ip/blk_mem_gen_64k/blk_mem_gen_64k_ooc.xdc]
+
+read_ip -quiet /home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.srcs/sources_1/ip/hdmi_tx_0/hdmi_tx_0.xci
 
 OPTRACE "Adding files" END { }
 # Mark all dcp files as not used in implementation to prevent them from being

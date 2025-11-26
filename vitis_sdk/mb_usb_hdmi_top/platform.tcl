@@ -22,3 +22,6 @@ platform config -updatehw {/home/reet/Desktop/ECE385/FinalProject/apple2e/mb_usb
 platform generate -domains 
 platform config -updatehw {/home/reet/Desktop/ECE385/FinalProject/apple2e/mb_usb_hdmi_top.xsa}
 platform generate -domains 
+platform active {mb_usb_hdmi_top}
+platform config -updatehw {/home/reet/Desktop/ECE385/FinalProject/apple2e/top_module.xsa}
+platform generate -domains 

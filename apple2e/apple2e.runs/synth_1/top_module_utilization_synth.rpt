@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2022.2 (lin64) Build 3671981 Fri Oct 14 04:59:54 MDT 2022
-| Date         : Mon Nov 24 21:54:52 2025
+| Date         : Tue Nov 25 18:48:19 2025
 | Host         : reet-Lenovo-V15-G4-ABP running 64-bit Ubuntu 22.04.5 LTS
 | Command      : report_utilization -file top_module_utilization_synth.rpt -pb top_module_utilization_synth.pb
 | Design       : top_module
@@ -31,14 +31,14 @@ Table of Contents
 +-------------------------+------+-------+------------+-----------+-------+
 |        Site Type        | Used | Fixed | Prohibited | Available | Util% |
 +-------------------------+------+-------+------------+-----------+-------+
-| Slice LUTs*             |  494 |     0 |          0 |     32600 |  1.52 |
-|   LUT as Logic          |  494 |     0 |          0 |     32600 |  1.52 |
+| Slice LUTs*             |  597 |     0 |          0 |     32600 |  1.83 |
+|   LUT as Logic          |  597 |     0 |          0 |     32600 |  1.83 |
 |   LUT as Memory         |    0 |     0 |          0 |      9600 |  0.00 |
-| Slice Registers         |  148 |     0 |          0 |     65200 |  0.23 |
-|   Register as Flip Flop |  148 |     0 |          0 |     65200 |  0.23 |
+| Slice Registers         |  206 |     0 |          0 |     65200 |  0.32 |
+|   Register as Flip Flop |  206 |     0 |          0 |     65200 |  0.32 |
 |   Register as Latch     |    0 |     0 |          0 |     65200 |  0.00 |
-| F7 Muxes                |   10 |     0 |          0 |     16300 |  0.06 |
-| F8 Muxes                |    0 |     0 |          0 |      8150 |  0.00 |
+| F7 Muxes                |   43 |     0 |          0 |     16300 |  0.26 |
+| F8 Muxes                |   15 |     0 |          0 |      8150 |  0.18 |
 +-------------------------+------+-------+------------+-----------+-------+
 * Warning! The Final LUT count, after physical optimizations and full implementation, is typically lower. Run opt_design after synthesis, if not already completed, for a more realistic count.
 Warning! LUT value is adjusted to account for LUT combining.
@@ -56,8 +56,8 @@ Warning! LUT value is adjusted to account for LUT combining.
 | 0     |            _ |         Set |            - |
 | 0     |            _ |       Reset |            - |
 | 0     |          Yes |           - |            - |
-| 4     |          Yes |           - |          Set |
-| 95    |          Yes |           - |        Reset |
+| 6     |          Yes |           - |          Set |
+| 151   |          Yes |           - |        Reset |
 | 0     |          Yes |         Set |            - |
 | 49    |          Yes |       Reset |            - |
 +-------+--------------+-------------+--------------+
@@ -147,19 +147,20 @@ Warning! LUT value is adjusted to account for LUT combining.
 +----------+------+---------------------+
 | Ref Name | Used | Functional Category |
 +----------+------+---------------------+
-| LUT6     |  265 |                 LUT |
-| LUT5     |  135 |                 LUT |
-| FDCE     |   95 |        Flop & Latch |
+| LUT6     |  349 |                 LUT |
+| FDCE     |  151 |        Flop & Latch |
+| LUT5     |  145 |                 LUT |
+| LUT4     |   70 |                 LUT |
 | LUT2     |   70 |                 LUT |
-| LUT3     |   61 |                 LUT |
-| LUT4     |   56 |                 LUT |
+| LUT3     |   65 |                 LUT |
 | FDRE     |   49 |        Flop & Latch |
+| MUXF7    |   43 |               MuxFx |
 | OBUF     |   29 |                  IO |
 | CARRY4   |   23 |          CarryLogic |
-| MUXF7    |   10 |               MuxFx |
-| LUT1     |    8 |                 LUT |
+| MUXF8    |   15 |               MuxFx |
+| LUT1     |    7 |                 LUT |
+| FDPE     |    6 |        Flop & Latch |
 | IBUF     |    5 |                  IO |
-| FDPE     |    4 |        Flop & Latch |
 | BUFG     |    1 |               Clock |
 +----------+------+---------------------+
 
@@ -187,6 +188,7 @@ Warning! LUT value is adjusted to account for LUT combining.
 | mb_usb_axi_gpio_0_2            |    1 |
 | mb_usb_axi_gpio_0_1            |    1 |
 | mb_usb_axi_gpio_0_0            |    1 |
+| hdmi_tx_0                      |    1 |
 | clk_wiz_0                      |    1 |
 | blk_mem_gen_64k                |    1 |
 +--------------------------------+------+

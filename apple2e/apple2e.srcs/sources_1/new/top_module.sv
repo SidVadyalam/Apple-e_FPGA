@@ -36,6 +36,12 @@ module top_module(
         input logic uart_rtl_0_rxd,
         output logic uart_rtl_0_txd,
 
+        //HDMI
+        output logic hdmi_tmds_clk_n,
+        output logic hdmi_tmds_clk_p,
+        output logic [2:0]hdmi_tmds_data_n,
+        output logic [2:0]hdmi_tmds_data_p,
+
         //HEX displays
         output logic [7:0] hex_segA,
         output logic [3:0] hex_gridA,
@@ -175,22 +181,32 @@ module top_module(
     //   0xC000        : keyboard MMIO (overrides BRAM read)
     // -------------------------------------------------------------------------
     wire cpu_write  = (t65_R_W_n == 1'b0);
-    wire rom_region = (cpu_addr[15:12] >= 4'hD);     // 0xD000–0xFFFF
+    wire ram_region = (cpu_addr < 16'hC000);       // 0x0000–0xBFFF
+    wire rom_region = (cpu_addr >= 16'hC000);      // 0xC000–0xFFFF
     wire kb_region  = (cpu_addr == 16'hC000);        // keyboard register
 
     wire [0:0] bram_we;
-    assign bram_we = (cpu_write) ? 1'b1 : 1'b0;
+    assign bram_we = (cpu_write && ram_region && !kb_region) ? 1'b1 : 1'b0;
 
     wire [7:0] bram_dout;
 
     // NOTE: ensure this module name matches your generated IP
     blk_mem_gen_64k u_mem64k (
+        //CPU Port
         .clka  (Clk),
         .ena   (1'b1),
         .wea   (bram_we),
         .addra (cpu_addr),
         .dina  (t65_DO),
-        .douta (bram_dout)
+        .douta (bram_dout),
+        //Video Port
+        .clkb(clk_25MHz),
+        .enb(1'b1),
+        .web(1'b0),
+        .addrb(vram_addr),
+        .dinb(8'h00),
+        .doutb(vram_data)
+
     );
 
     // T65 data input mux: keyboard MMIO vs BRAM
@@ -206,6 +222,26 @@ module top_module(
 
     logic [9:0] drawX, drawY;
     logic hsync, vsync, vde;
+
+    logic [3:0] red, green, blue;
+    logic [15:0] vram_addr;
+    logic [7:0] vram_data;
+
+    apple2_video_simple video_unit (
+        .pixel_clk(clk_25MHz),
+        .reset(reset_ah),
+        .drawX(drawX),
+        .drawY(drawY),
+        .active_nblank(vde),
+
+        .vram_addr(vram_addr),
+        .vram_data(vram_data),
+
+        .red(red),
+        .green(green),
+        .blue(blue)
+    );
+
     vga_controller vga (
         .pixel_clk(clk_25MHz),
         .reset(reset_ah),
@@ -214,6 +250,34 @@ module top_module(
         .active_nblank(vde),
         .drawX(drawX),
         .drawY(drawY)
+    );
+
+    //Real Digital VGA to HDMI converter
+    hdmi_tx_0 vga_to_hdmi (
+        //Clocking and Reset
+        .pix_clk(clk_25MHz),
+        .pix_clkx5(clk_125MHz),
+        .pix_clk_locked(locked),
+        .rst(reset_ah),
+        //Color and Sync Signals
+        .red(red),
+        .green(green),
+        .blue(blue),
+        .hsync(hsync),
+        .vsync(vsync),
+        .vde(vde),
+        
+        //aux Data (unused)
+        .aux0_din(4'b0),
+        .aux1_din(4'b0),
+        .aux2_din(4'b0),
+        .ade(1'b0),
+        
+        //Differential outputs
+        .TMDS_CLK_P(hdmi_tmds_clk_p),          
+        .TMDS_CLK_N(hdmi_tmds_clk_n),          
+        .TMDS_DATA_P(hdmi_tmds_data_p),         
+        .TMDS_DATA_N(hdmi_tmds_data_n)          
     );
 
 endmodule

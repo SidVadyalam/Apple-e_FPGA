@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2022.2 (lin64) Build 3671981 Fri Oct 14 04:59:54 MDT 2022
-| Date         : Mon Nov 24 21:55:49 2025
+| Date         : Tue Nov 25 18:49:29 2025
 | Host         : reet-Lenovo-V15-G4-ABP running 64-bit Ubuntu 22.04.5 LTS
 | Command      : report_methodology -file top_module_methodology_drc_routed.rpt -pb top_module_methodology_drc_routed.pb -rpx top_module_methodology_drc_routed.rpx
 | Design       : top_module
@@ -23,14 +23,14 @@ Table of Contents
           Floorplan: design_1
       Design limits: <entire design considered>
              Max violations: <unlimited>
-             Violations found: 169
+             Violations found: 170
 +-----------+------------------+----------------------------------------------------+------------+
 | Rule      | Severity         | Description                                        | Violations |
 +-----------+------------------+----------------------------------------------------+------------+
 | TIMING-4  | Critical Warning | Invalid primary clock redefinition on a clock tree | 2          |
 | TIMING-17 | Critical Warning | Non-clocked sequential cell                        | 127        |
 | TIMING-27 | Critical Warning | Invalid primary clock on hierarchical pin          | 2          |
-| LUTAR-1   | Warning          | LUT drives async reset alert                       | 4          |
+| LUTAR-1   | Warning          | LUT drives async reset alert                       | 5          |
 | TIMING-9  | Warning          | Unknown CDC Logic                                  | 1          |
 | TIMING-18 | Warning          | Missing input or output delay                      | 33         |
 +-----------+------------------+----------------------------------------------------+------------+
@@ -529,7 +529,7 @@ Related violations: <none>
 
 TIMING-17#97 Critical Warning
 Non-clocked sequential cell  
-The clock pin u_t65/R_W_n_reg_inv/C is not reached by a timing clock
+The clock pin u_t65/R_W_n_reg/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#98 Critical Warning
@@ -709,13 +709,30 @@ Related violations: <none>
 
 LUTAR-1#4 Warning
 LUT drives async reset alert  
-LUT cell u_t65/MCycle[2]_i_2, with 2 or more inputs, drives asynchronous preset/clear pin(s) u_t65/R_W_n_reg_inv/CLR, u_t65/RstCycle_reg/PRE, u_t65/S_reg[0]/CLR,
+LUT cell u_t65/MCycle[2]_i_2, with 2 or more inputs, drives asynchronous preset/clear pin(s) u_t65/R_W_n_reg/PRE, u_t65/RstCycle_reg/PRE, u_t65/S_reg[0]/CLR,
 u_t65/S_reg[1]/CLR, u_t65/S_reg[2]/CLR, u_t65/S_reg[3]/CLR,
 u_t65/S_reg[4]/CLR, u_t65/S_reg[5]/CLR, u_t65/S_reg[6]/CLR,
 u_t65/S_reg[7]/CLR, u_t65/Set_Addr_To_r_reg[0]/CLR,
 u_t65/Set_Addr_To_r_reg[1]/CLR, u_t65/Write_Data_r_reg[0]/CLR,
 u_t65/Write_Data_r_reg[1]/CLR, u_t65/Write_Data_r_reg[2]/CLR
  (the first 15 of 95 listed). The LUT may glitch and trigger an unexpected reset, even if it is a properly timed path.
+Related violations: <none>
+
+LUTAR-1#5 Warning
+LUT drives async reset alert  
+LUT cell vga_to_hdmi/inst/encr/oserdes_m_i_1, with 2 or more inputs, drives asynchronous preset/clear pin(s) vga_to_hdmi/inst/encg/dout_reg[9]/CLR,
+vga_to_hdmi/inst/encr/cnt_reg[1]/CLR, vga_to_hdmi/inst/encr/cnt_reg[2]/CLR,
+vga_to_hdmi/inst/encr/cnt_reg[3]/CLR, vga_to_hdmi/inst/encr/cnt_reg[4]/CLR,
+vga_to_hdmi/inst/encr/dout_reg[0]/CLR,
+vga_to_hdmi/inst/encr/dout_reg[1]/CLR,
+vga_to_hdmi/inst/encr/dout_reg[2]/CLR,
+vga_to_hdmi/inst/encr/dout_reg[3]/CLR,
+vga_to_hdmi/inst/encr/dout_reg[4]/CLR,
+vga_to_hdmi/inst/encr/dout_reg[5]/CLR,
+vga_to_hdmi/inst/encr/dout_reg[6]/CLR,
+vga_to_hdmi/inst/encr/dout_reg[7]/CLR,
+vga_to_hdmi/inst/encr/dout_reg[8]/CLR,
+vga_to_hdmi/inst/encr/dout_reg[9]/CLR (the first 15 of 42 listed). The LUT may glitch and trigger an unexpected reset, even if it is a properly timed path.
 Related violations: <none>
 
 TIMING-9#1 Warning
