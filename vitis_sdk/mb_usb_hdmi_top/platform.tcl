@@ -27,3 +27,6 @@ platform config -updatehw {/home/reet/Desktop/ECE385/FinalProject/apple2e/top_mo
 platform generate -domains 
 platform config -updatehw {/home/reet/Desktop/ECE385/FinalProject/apple2e/top_module.xsa}
 platform generate -domains 
+platform config -updatehw {/home/reet/Desktop/ECE385/FinalProject/apple2e/top_module.xsa}
+platform config -updatehw {/home/reet/Desktop/ECE385/FinalProject/apple2e/top_module.xsa}
+platform generate -domains 
