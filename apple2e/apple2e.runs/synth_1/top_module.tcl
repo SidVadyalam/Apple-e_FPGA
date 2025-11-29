@@ -70,12 +70,7 @@ proc create_report { reportName command } {
   }
 }
 OPTRACE "synth_1" START { ROLLUP_AUTO }
-set_param xicom.use_bs_reader 1
 set_param chipscope.maxJobs 4
-set_param checkpoint.writeSynthRtdsInDcp 1
-set_msg_config -id {Common 17-41} -limit 10000000
-set_msg_config -id {Synth 8-256} -limit 10000
-set_msg_config -id {Synth 8-638} -limit 10000
 OPTRACE "Creating in-memory project" START { }
 create_project -in_memory -part xc7s50csga324-1
 
@@ -98,6 +93,7 @@ add_files /home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.srcs/sources_1/
 read_mem /home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.srcs/sources_1/new/font.mem
 read_verilog -library xil_defaultlib -sv {
   /home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.srcs/sources_1/imports/design_source/VGA_controller.sv
+  /home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.srcs/sources_1/new/apple2_keyboard.sv
   /home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.srcs/sources_1/new/apple2_video_simple.sv
   /home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.srcs/sources_1/new/char_rom.sv
   /home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.srcs/sources_1/imports/design_source/hex_driver.sv

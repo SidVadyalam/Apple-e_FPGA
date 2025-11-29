@@ -66,20 +66,20 @@ module top_module(
         .hex_grid(hex_gridA)
     );
     
-    // hex_driver HexB (
-    //     .clk(Clk),
-    //     .reset(reset_ah),
-    //     .in({keycode0_gpio[15:12], keycode0_gpio[11:8], keycode0_gpio[7:4], keycode0_gpio[3:0]}),
-    //     .hex_seg(hex_segB),
-    //     .hex_grid(hex_gridB)
-    // );
     hex_driver HexB (
         .clk(Clk),
         .reset(reset_ah),
-        .in({ cpu_addr[15:12], cpu_addr[11:8], cpu_addr[7:4], cpu_addr[3:0] }),
+        .in({keycode0_gpio[15:12], keycode0_gpio[11:8], keycode0_gpio[7:4], keycode0_gpio[3:0]}),
         .hex_seg(hex_segB),
         .hex_grid(hex_gridB)
     );
+    // hex_driver HexB (
+    //     .clk(Clk),
+    //     .reset(reset_ah),
+    //     .in({ cpu_addr[15:12], cpu_addr[11:8], cpu_addr[7:4], cpu_addr[3:0] }),
+    //     .hex_seg(hex_segB),
+    //     .hex_grid(hex_gridB)
+    // );
 
     mb_usb mb_block_i (
         .clk_100MHz(Clk),
@@ -182,6 +182,139 @@ module top_module(
         .DO     (t65_DO)
     );
 
+
+    //USB HID -> ASCII logic
+
+    logic [7:0] hid_bytes [0:7];
+
+    assign hid_bytes[0] = keycode0_gpio[7:0];
+    assign hid_bytes[1] = keycode0_gpio[15:8];
+    assign hid_bytes[2] = keycode0_gpio[23:16];
+    assign hid_bytes[3] = keycode0_gpio[31:24];
+    assign hid_bytes[4] = keycode1_gpio[7:0];
+    assign hid_bytes[5] = keycode1_gpio[15:8];
+    assign hid_bytes[6] = keycode1_gpio[23:16];
+    assign hid_bytes[7] = keycode1_gpio[31:24];
+
+    logic [7:0] hid_code;
+    logic       hid_active;
+    logic       shift_active;
+
+    integer i;
+
+    always_comb begin
+        hid_code     = 8'h00;
+        hid_active   = 1'b0;
+        shift_active = 1'b0;
+
+        // Detect "shift-like" modifiers: Shift (E1/E5) OR Caps Lock (39)
+        for (i = 0; i < 8; i++) begin
+            case (hid_bytes[i])
+                8'hE1, // Left Shift
+                8'hE5, // Right Shift
+                8'h39: // Caps Lock (we treat this as shift)
+                    shift_active = 1'b1;
+                default: ;
+            endcase
+        end
+
+
+         // Pick first non-zero, non-modifier key as main keycode
+        for (i = 0; i < 8; i++) begin
+            if (!hid_active) begin
+                unique case (hid_bytes[i])
+                    8'h00,
+                    8'hE0,8'hE1,8'hE2,8'hE3,
+                    8'hE4,8'hE5,8'hE6,8'hE7,
+                    8'h39: ;   // treat Caps Lock as modifier, not a printable key
+                    default: begin
+                        hid_code   = hid_bytes[i];
+                        hid_active = 1'b1;
+                    end
+                endcase
+            end
+        end
+    end
+
+        // USB HID usage ID -> ASCII (upper-case + shifted symbols)
+    function automatic [7:0] hid_to_ascii (input [7:0] hid, input logic shift);
+        begin
+            // letters A-Z: HID 0x04..0x1D
+            if (hid >= 8'h04 && hid <= 8'h1D) begin
+                // Apple II is basically uppercase-only anyway
+                hid_to_ascii = 8'h41 + (hid - 8'h04); // 'A' + (hid-4)
+            end else begin
+                case (hid)
+                    // digits 1-0 with shifted symbols
+                    8'h1E: hid_to_ascii = shift ? "!" : "1";
+                    8'h1F: hid_to_ascii = shift ? "@" : "2";
+                    8'h20: hid_to_ascii = shift ? "#" : "3";
+                    8'h21: hid_to_ascii = shift ? "$" : "4";
+                    8'h22: hid_to_ascii = shift ? "%" : "5";
+                    8'h23: hid_to_ascii = shift ? "^" : "6";
+                    8'h24: hid_to_ascii = shift ? "&" : "7";
+                    8'h25: hid_to_ascii = shift ? "*" : "8";
+                    8'h26: hid_to_ascii = shift ? "(" : "9";
+                    8'h27: hid_to_ascii = shift ? ")" : "0";
+
+                    // space, enter, backspace
+                    8'h2C: hid_to_ascii = 8'h20;             // space
+                    8'h28: hid_to_ascii = 8'h0D;             // enter (CR)
+                    8'h2A: hid_to_ascii = 8'h08;             // backspace
+
+                    // punctuation with shift variants
+                    8'h2D: hid_to_ascii = shift ? "_" : "-";
+                    8'h2E: hid_to_ascii = shift ? "+" : "=";
+                    8'h2F: hid_to_ascii = shift ? "{" : "[";
+                    8'h30: hid_to_ascii = shift ? "}" : "]";
+                    8'h31: hid_to_ascii = shift ? "|" : "\\"; // backslash / pipe
+                    8'h33: hid_to_ascii = shift ? ":" : ";";
+                    // quote / double-quote
+                    8'h34: hid_to_ascii = shift ? 8'h22 : "'"; // 0x22 = '"'
+                    8'h36: hid_to_ascii = shift ? "<" : ",";
+                    8'h37: hid_to_ascii = shift ? ">" : ".";
+                    8'h38: hid_to_ascii = shift ? "?" : "/";
+
+                    default: hid_to_ascii = 8'h00;           // unknown / ignore
+                endcase
+            end
+        end
+    endfunction
+
+
+    logic [7:0] last_hid;
+    logic       last_active;
+    logic       last_shift;
+    logic [7:0] ascii_code;
+    logic       ascii_valid;
+    logic [7:0] tmp_ascii;
+
+    always_ff @(posedge Clk or posedge reset_ah) begin
+        if (reset_ah) begin
+            last_hid    <= 8'h00;
+            last_active <= 1'b0;
+            last_shift  <= 1'b0;
+            ascii_code  <= 8'h00;
+            ascii_valid <= 1'b0;
+        end else begin
+            ascii_valid <= 1'b0;  // default
+
+            // New effective key: hid changed, shift state changed, or was previously inactive
+            if (hid_active && (!last_active ||
+                               hid_code   != last_hid ||
+                               shift_active != last_shift)) begin
+                tmp_ascii  = hid_to_ascii(hid_code, shift_active);
+                ascii_code <= tmp_ascii;
+                if (tmp_ascii != 8'h00)
+                    ascii_valid <= 1'b1;
+            end
+
+            last_hid    <= hid_code;
+            last_active <= hid_active;
+            last_shift  <= shift_active;
+        end
+    end
+
     // -------------------------------------------------------------------------
     // 64 KB Block RAM via Block Memory Generator
     //   0x0000–0xCFFF : RAM
@@ -191,10 +324,13 @@ module top_module(
     wire cpu_write  = (t65_R_W_n == 1'b0);
     wire ram_region = (cpu_addr < 16'hC000);       // 0x0000–0xBFFF
     wire rom_region = (cpu_addr >= 16'hC000);      // 0xC000–0xFFFF
-    wire kb_region  = (cpu_addr == 16'hC000);        // keyboard register
+    wire kb_data_region  = (cpu_addr == 16'hC000);        // keyboard register
+    wire kb_clear_region = (cpu_addr[15:4] == 12'hC01); // addr bits 15..4 == C010..C01F
+
+
 
     wire [0:0] bram_we;
-    assign bram_we = (cpu_write && ram_region && !kb_region) ? 1'b1 : 1'b0;
+    assign bram_we = (cpu_write && ram_region && !kb_data_region) ? 1'b1 : 1'b0;
 
     wire [7:0] bram_dout;
 
@@ -217,15 +353,35 @@ module top_module(
 
     );
 
-    // T65 data input mux: keyboard MMIO vs BRAM
+    logic [7:0] kb_data_out;
+
+    // Any access (read or write) in the $C010-$C01F range clears strobe
+    wire cpu_access_c010 = kb_clear_region;  // no need to gate with R/W
+                                             // since hardware doesn't care
+
+    apple2_keyboard u_kb (
+        .clk            (Clk),
+        .reset          (reset_ah),
+
+        .ascii_in       (ascii_code),
+        .ascii_valid    (ascii_valid),
+
+        .cpu_read_c000  (kb_data_region  && cpu_read),
+        .cpu_clear_strobe(cpu_access_c010),
+
+        .cpu_data       (kb_data_out)
+    );
+
+    // T65 data input mux: keyboard @C000, otherwise BRAM
     always_comb begin
-        if (kb_region) begin
-            // Simple memory-mapped keyboard: lower byte of keycode0
-            t65_DI = keycode0_gpio[7:0];
+        if (kb_data_region) begin
+            // Apple II-style keyboard register at $C000
+            t65_DI = kb_data_out;
         end else begin
             t65_DI = bram_dout;
         end
     end
+
 
 
     logic [9:0] drawX, drawY;

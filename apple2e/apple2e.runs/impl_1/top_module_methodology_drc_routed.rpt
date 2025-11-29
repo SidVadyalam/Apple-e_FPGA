@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2022.2 (lin64) Build 3671981 Fri Oct 14 04:59:54 MDT 2022
-| Date         : Wed Nov 26 09:39:00 2025
+| Date         : Thu Nov 27 20:05:40 2025
 | Host         : reet-Lenovo-V15-G4-ABP running 64-bit Ubuntu 22.04.5 LTS
 | Command      : report_methodology -file top_module_methodology_drc_routed.rpt -pb top_module_methodology_drc_routed.pb -rpx top_module_methodology_drc_routed.rpx
 | Design       : top_module
@@ -23,15 +23,18 @@ Table of Contents
           Floorplan: design_1
       Design limits: <entire design considered>
              Max violations: <unlimited>
-             Violations found: 170
+             Violations found: 175
 +-----------+------------------+----------------------------------------------------+------------+
 | Rule      | Severity         | Description                                        | Violations |
 +-----------+------------------+----------------------------------------------------+------------+
 | TIMING-4  | Critical Warning | Invalid primary clock redefinition on a clock tree | 2          |
+| TIMING-6  | Critical Warning | No common primary clock between related clocks     | 1          |
+| TIMING-7  | Critical Warning | No common node between related clocks              | 1          |
 | TIMING-17 | Critical Warning | Non-clocked sequential cell                        | 127        |
 | TIMING-27 | Critical Warning | Invalid primary clock on hierarchical pin          | 2          |
 | LUTAR-1   | Warning          | LUT drives async reset alert                       | 5          |
 | TIMING-9  | Warning          | Unknown CDC Logic                                  | 1          |
+| TIMING-16 | Warning          | Large setup violation                              | 3          |
 | TIMING-18 | Warning          | Missing input or output delay                      | 33         |
 +-----------+------------------+----------------------------------------------------+------------+
 
@@ -45,6 +48,16 @@ Related violations: <none>
 TIMING-4#2 Critical Warning
 Invalid primary clock redefinition on a clock tree  
 Invalid clock redefinition on a clock tree. The primary clock mb_block_i/clk_wiz_1/inst/clk_in1 is defined downstream of clock clk_100 and overrides its insertion delay and/or waveform definition
+Related violations: <none>
+
+TIMING-6#1 Critical Warning
+No common primary clock between related clocks  
+The clocks clk_out1_mb_usb_clk_wiz_1_0 and clk_100 are related (timed together) but they have no common primary clock. The design could fail in hardware. To find a timing path between these clocks, run the following command: report_timing -from [get_clocks clk_out1_mb_usb_clk_wiz_1_0] -to [get_clocks clk_100]
+Related violations: <none>
+
+TIMING-7#1 Critical Warning
+No common node between related clocks  
+The clocks clk_out1_mb_usb_clk_wiz_1_0 and clk_100 are related (timed together) but they have no common node. The design could fail in hardware. To find a timing path between these clocks, run the following command: report_timing -from [get_clocks clk_out1_mb_usb_clk_wiz_1_0] -to [get_clocks clk_100]
 Related violations: <none>
 
 TIMING-17#1 Critical Warning
@@ -740,6 +753,21 @@ Unknown CDC Logic
 One or more asynchronous Clock Domain Crossing has been detected between 2 clock domains through a set_false_path or a set_clock_groups or set_max_delay -datapath_only constraint but no double-registers logic synchronizer has been found on the side of the capture clock. It is recommended to run report_cdc for a complete and detailed CDC coverage. Please consider using XPM_CDC to avoid Critical severities
 Related violations: <none>
 
+TIMING-16#1 Warning
+Large setup violation  
+There is a large setup violation of -1.200 ns between mb_block_i/gpio_usb_keycode/U0/gpio_core_1/Dual.gpio2_Data_Out_reg[8]/C (clocked by clk_out1_mb_usb_clk_wiz_1_0) and ascii_code_reg[6]/D (clocked by clk_100). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#2 Warning
+Large setup violation  
+There is a large setup violation of -1.328 ns between mb_block_i/gpio_usb_keycode/U0/gpio_core_1/Dual.gpio2_Data_Out_reg[25]/C (clocked by clk_out1_mb_usb_clk_wiz_1_0) and ascii_code_reg[3]/D (clocked by clk_100). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#3 Warning
+Large setup violation  
+There is a large setup violation of -1.359 ns between mb_block_i/gpio_usb_keycode/U0/gpio_core_1/Dual.gpio2_Data_Out_reg[25]/C (clocked by clk_out1_mb_usb_clk_wiz_1_0) and ascii_code_reg[2]/D (clocked by clk_100). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
 TIMING-18#1 Warning
 Missing input or output delay  
 An input delay is missing on gpio_usb_int_tri_i[0] relative to clock(s) mb_block_i/clk_wiz_1/inst/clk_in1
@@ -847,42 +875,42 @@ Related violations: <none>
 
 TIMING-18#22 Warning
 Missing input or output delay  
-An output delay is missing on hex_segB[0] relative to clock(s) clk_100
+An output delay is missing on hex_segB[0] relative to clock(s) clk_100, mb_block_i/clk_wiz_1/inst/clk_in1
 Related violations: <none>
 
 TIMING-18#23 Warning
 Missing input or output delay  
-An output delay is missing on hex_segB[1] relative to clock(s) clk_100
+An output delay is missing on hex_segB[1] relative to clock(s) clk_100, mb_block_i/clk_wiz_1/inst/clk_in1
 Related violations: <none>
 
 TIMING-18#24 Warning
 Missing input or output delay  
-An output delay is missing on hex_segB[2] relative to clock(s) clk_100
+An output delay is missing on hex_segB[2] relative to clock(s) clk_100, mb_block_i/clk_wiz_1/inst/clk_in1
 Related violations: <none>
 
 TIMING-18#25 Warning
 Missing input or output delay  
-An output delay is missing on hex_segB[3] relative to clock(s) clk_100
+An output delay is missing on hex_segB[3] relative to clock(s) clk_100, mb_block_i/clk_wiz_1/inst/clk_in1
 Related violations: <none>
 
 TIMING-18#26 Warning
 Missing input or output delay  
-An output delay is missing on hex_segB[4] relative to clock(s) clk_100
+An output delay is missing on hex_segB[4] relative to clock(s) clk_100, mb_block_i/clk_wiz_1/inst/clk_in1
 Related violations: <none>
 
 TIMING-18#27 Warning
 Missing input or output delay  
-An output delay is missing on hex_segB[5] relative to clock(s) clk_100
+An output delay is missing on hex_segB[5] relative to clock(s) clk_100, mb_block_i/clk_wiz_1/inst/clk_in1
 Related violations: <none>
 
 TIMING-18#28 Warning
 Missing input or output delay  
-An output delay is missing on hex_segB[6] relative to clock(s) clk_100
+An output delay is missing on hex_segB[6] relative to clock(s) clk_100, mb_block_i/clk_wiz_1/inst/clk_in1
 Related violations: <none>
 
 TIMING-18#29 Warning
 Missing input or output delay  
-An output delay is missing on hex_segB[7] relative to clock(s) clk_100
+An output delay is missing on hex_segB[7] relative to clock(s) clk_100, mb_block_i/clk_wiz_1/inst/clk_in1
 Related violations: <none>
 
 TIMING-18#30 Warning
