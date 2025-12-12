@@ -115,6 +115,9 @@ proc step_failed { step } {
 OPTRACE "impl_1" END { }
 }
 
+set_msg_config -id {Common 17-41} -limit 10000000
+set_msg_config -id {Synth 8-256} -limit 10000
+set_msg_config -id {Synth 8-638} -limit 10000
 
 OPTRACE "impl_1" START { ROLLUP_1 }
 OPTRACE "Phase: Init Design" START { ROLLUP_AUTO }
@@ -122,7 +125,11 @@ start_step init_design
 set ACTIVE_STEP init_design
 set rc [catch {
   create_msg_db init_design.pb
+  set_param xicom.use_bs_reader 1
   set_param chipscope.maxJobs 4
+  set_param checkpoint.writeSynthRtdsInDcp 1
+  set_param tcl.statsThreshold 360
+  set_param synth.incrementalSynthesisCache ./.Xil/Vivado-1570909-reet-Lenovo-V15-G4-ABP/incrSyn
 OPTRACE "create in-memory project" START { }
   create_project -in_memory -part xc7s50csga324-1
   set_property design_mode GateLvl [current_fileset]
@@ -144,7 +151,7 @@ OPTRACE "add files" START { }
   add_files /home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.srcs/sources_1/bd/mb_usb/mb_usb.bd
   read_ip -quiet /home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.xci
   read_ip -quiet /home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.srcs/sources_1/ip/hdmi_tx_0/hdmi_tx_0.xci
-  read_ip -quiet /home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.srcs/sources_1/ip/blk_mem_gen_64k/blk_mem_gen_64k.xci
+  read_ip -quiet /home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.srcs/sources_1/ip/blk_mem_gen_64k_1/blk_mem_gen_64k.xci
   set_param project.isImplRun false
 OPTRACE "read constraints: implementation" START { }
   read_xdc /home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.srcs/constrs_1/imports/pin_assignment/mb_usb_hdmi_top.xdc

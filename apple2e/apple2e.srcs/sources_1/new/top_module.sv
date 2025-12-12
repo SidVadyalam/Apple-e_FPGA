@@ -73,13 +73,6 @@ module top_module(
         .hex_seg(hex_segB),
         .hex_grid(hex_gridB)
     );
-    // hex_driver HexB (
-    //     .clk(Clk),
-    //     .reset(reset_ah),
-    //     .in({ cpu_addr[15:12], cpu_addr[11:8], cpu_addr[7:4], cpu_addr[3:0] }),
-    //     .hex_seg(hex_segB),
-    //     .hex_grid(hex_gridB)
-    // );
 
     mb_usb mb_block_i (
         .clk_100MHz(Clk),
@@ -87,7 +80,7 @@ module top_module(
         .gpio_usb_keycode_0_tri_o(keycode0_gpio),
         .gpio_usb_keycode_1_tri_o(keycode1_gpio),
         .gpio_usb_rst_tri_o(gpio_usb_rst_tri_o),
-        .reset_rtl_0(~reset_ah), //Block designs expect active low reset, all other modules are active high
+        .reset_rtl_0(~reset_ah), 
         .uart_rtl_0_rxd(uart_rtl_0_rxd),
         .uart_rtl_0_txd(uart_rtl_0_txd),
         .usb_spi_miso(usb_spi_miso),
@@ -105,16 +98,6 @@ module top_module(
         .locked(locked),
         .clk_in1(Clk)
     );
-
-    logic clk_50MHz;
-    // Generate 50 MHz clock from 100 MHz input
-    always_ff @(posedge clk_125MHz) begin
-        if (reset_ah) begin
-            clk_50MHz <= 1'b1;
-        end else begin
-            clk_50MHz <= ~clk_50MHz;
-        end
-    end
 
     logic cpu_clk;
     logic [2:0] clk_counter;
@@ -134,14 +117,12 @@ module top_module(
         end
     end
 
-    assign led = counter[23];
+    assign led = text_mode;
 
     logic t65_res_n;
     assign t65_res_n = ~reset_ah & locked;
 
-    // -------------------------------------------------------------------------
     // T65 CPU
-    // -------------------------------------------------------------------------
     logic        t65_R_W_n;
     logic [23:0] t65_A;
     logic [7:0]  t65_DI;
@@ -151,20 +132,22 @@ module top_module(
     logic t65_Sync, t65_EF, t65_MF, t65_XF, t65_ML_n;
     logic t65_VP_n, t65_VDA, t65_VPA;
 
+    logic cpu_valid = t65_VDA | t65_VPA;
+
     // 16-bit address used for memory
     logic [15:0] cpu_addr;
     assign cpu_addr = t65_A[15:0];
 
     // Instantiate T65 in 6502 mode
     T65 u_t65 (
-        .Mode   (2'b00),      // 6502 mode
+        .Mode   (2'b01),      // 65c02 mode(not fully implemented according to opencores)
         .Res_n  (t65_res_n),  // active-low reset
         .Clk    (cpu_clk),
-        .Rdy    (1'b1),       // no wait states
+        .Rdy    (1'b1),       
 
         .Abort_n(1'b1),
-        .IRQ_n  (1'b1),       // no IRQ yet
-        .NMI_n  (1'b1),       // no NMI yet
+        .IRQ_n  (1'b1),       
+        .NMI_n  (1'b1),       
         .SO_n   (1'b1),
 
         .R_W_n  (t65_R_W_n),
@@ -207,7 +190,7 @@ module top_module(
         hid_active   = 1'b0;
         shift_active = 1'b0;
 
-        // Detect "shift-like" modifiers: Shift (E1/E5) OR Caps Lock (39)
+        //Shift modifier (using caps lock since lab 6 keyboard code doesn't work for shift key)
         for (i = 0; i < 8; i++) begin
             case (hid_bytes[i])
                 8'hE1, // Left Shift
@@ -315,74 +298,74 @@ module top_module(
         end
     end
 
-    // -------------------------------------------------------------------------
-    // 64 KB Block RAM via Block Memory Generator
-    //   0x0000–0xCFFF : RAM
-    //   0xD000–0xFFFF : ROM (read-only via .coe init)
-    //   0xC000        : keyboard MMIO (overrides BRAM read)
-    // -------------------------------------------------------------------------
-    wire cpu_write  = (t65_R_W_n == 1'b0);
-    wire ram_region = (cpu_addr < 16'hC000);       // 0x0000–0xBFFF
-    wire rom_region = (cpu_addr >= 16'hC000);      // 0xC000–0xFFFF
-    wire kb_data_region  = (cpu_addr == 16'hC000);        // keyboard register
-    wire kb_clear_region = (cpu_addr[15:4] == 12'hC01); // addr bits 15..4 == C010..C01F
+    // MMU + BRAM
+
+    logic        cpu_we   = (t65_R_W_n == 1'b0);
+    logic [7:0]  cpu_di_mmu;
+    logic [15:0] mem_addr;
+    logic [7:0]  mem_din;
+    logic        mem_we;
+    logic [7:0]  mem_dout;
 
 
+    // MMU: 64K-only mapping, keyboard & BRAM in 100 MHz domain
+    
+    logic text_mode;
+    logic hires_mode;
+    logic  page_select;
+    logic mixed_mode;
 
-    wire [0:0] bram_we;
-    assign bram_we = (cpu_write && ram_region && !kb_data_region) ? 1'b1 : 1'b0;
+    apple2_mmu mmu (
+        .reset       (reset_ah),
 
-    wire [7:0] bram_dout;
+        // CPU side
+        .cpu_valid   (cpu_valid),
+        .cpu_addr    (cpu_addr),
+        .cpu_do      (t65_DO),
+        .cpu_we      (cpu_we),
+        .cpu_di      (cpu_di_mmu),
 
-    // NOTE: ensure this module name matches your generated IP
+        // Memory side (BRAM)
+        .mem_addr    (mem_addr),
+        .mem_din     (mem_din),
+        .mem_we      (mem_we),
+        .mem_dout    (mem_dout),
+
+        // Keyboard side on fast clock
+        .clk_io      (Clk),
+        .ascii_in    (ascii_code),
+        .ascii_valid (ascii_valid),
+
+        // Video mode outputs
+        .text_mode   (text_mode),
+        .hires_mode  (hires_mode),
+        .page_select (page_select),
+        .mixed_mode(mixed_mode)
+    );
+
+    assign t65_DI = cpu_di_mmu;
+
+
+    // 64 KB BRAM
+    // Port A: 100 MHz "system" clock (Clk), driven by MMU <-> CPU signals
+    // Port B: 25 MHz pixel clock (video)
     blk_mem_gen_64k u_mem64k (
-        //CPU Port
-        .clka  (Clk),
-        .ena   (1'b1),
-        .wea   (bram_we),
-        .addra (cpu_addr),
-        .dina  (t65_DO),
-        .douta (bram_dout),
-        //Video Port
-        .clkb(clk_25MHz),
-        .enb(1'b1),
-        .web(1'b0),
-        .addrb(vram_addr),
-        .dinb(8'h00),
-        .doutb(vram_data)
+        // CPU / MMU port
+        .clka   (Clk),
+        .ena    (1'b1),
+        .wea    (mem_we & ~cpu_clk), //don't want to write when cpu_clk goes high
+        .addra  (mem_addr),
+        .dina   (mem_din),
+        .douta  (mem_dout),
 
+        // Video port
+        .clkb   (clk_25MHz),
+        .enb    (1'b1),
+        .web    (1'b0),
+        .addrb  (vram_addr),
+        .dinb   (8'h00),
+        .doutb  (vram_data)
     );
-
-    logic [7:0] kb_data_out;
-
-    // Any access (read or write) in the $C010-$C01F range clears strobe
-    wire cpu_access_c010 = kb_clear_region;  // no need to gate with R/W
-                                             // since hardware doesn't care
-
-    apple2_keyboard u_kb (
-        .clk            (Clk),
-        .reset          (reset_ah),
-
-        .ascii_in       (ascii_code),
-        .ascii_valid    (ascii_valid),
-
-        .cpu_read_c000  (kb_data_region  && cpu_read),
-        .cpu_clear_strobe(cpu_access_c010),
-
-        .cpu_data       (kb_data_out)
-    );
-
-    // T65 data input mux: keyboard @C000, otherwise BRAM
-    always_comb begin
-        if (kb_data_region) begin
-            // Apple II-style keyboard register at $C000
-            t65_DI = kb_data_out;
-        end else begin
-            t65_DI = bram_dout;
-        end
-    end
-
-
 
     logic [9:0] drawX, drawY;
     logic hsync, vsync, vde;
@@ -391,19 +374,24 @@ module top_module(
     logic [15:0] vram_addr;
     logic [7:0] vram_data;
 
-    apple2_video_simple video_unit (
-        .pixel_clk(clk_25MHz),
-        .reset(reset_ah),
-        .drawX(drawX),
-        .drawY(drawY),
+    apple2_video video_unit (
+        .pixel_clk    (clk_25MHz),
+        .reset        (reset_ah),
+        .drawX        (drawX),
+        .drawY        (drawY),
         .active_nblank(vde),
 
-        .vram_addr(vram_addr),
-        .vram_data(vram_data),
+        .text_mode    (text_mode),
+        .hires_mode   (hires_mode),
+        .page_select  (page_select),
+        .mixed_mode   (mixed_mode),
 
-        .red(red),
-        .green(green),
-        .blue(blue)
+        .vram_addr    (vram_addr),
+        .vram_data    (vram_data),
+
+        .red          (red),
+        .green        (green),
+        .blue         (blue)
     );
 
     vga_controller vga (

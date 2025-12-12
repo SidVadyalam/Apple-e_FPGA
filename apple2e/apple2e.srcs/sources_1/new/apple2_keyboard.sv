@@ -1,15 +1,12 @@
-//-------------------------------------------------------------------------
-// Apple II style keyboard latch
+
 //   $C000 : read key data (bit 7 = strobe, bits 6..0 = ASCII[6:0])
 //   $C010-$C01F : any access clears strobe
-//-------------------------------------------------------------------------
-
 module apple2_keyboard (
     input  logic       clk,
     input  logic       reset,
 
     // From USB/HID side: 7-bit ASCII + 1-cycle strobe
-    input  logic [7:0] ascii_in,        // ASCII, we'll use [6:0]
+    input  logic [7:0] ascii_in,        // ASCII, use [6:0]
     input  logic       ascii_valid,     // pulse when new key arrives
 
     // From CPU side

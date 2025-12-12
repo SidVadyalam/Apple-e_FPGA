@@ -1,10 +1,10 @@
 -- Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2022.2 (lin64) Build 3671981 Fri Oct 14 04:59:54 MDT 2022
--- Date        : Wed Nov 26 09:10:37 2025
+-- Date        : Tue Dec  9 14:31:29 2025
 -- Host        : reet-Lenovo-V15-G4-ABP running 64-bit Ubuntu 22.04.5 LTS
--- Command     : write_vhdl -force -mode synth_stub
---               /home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.gen/sources_1/ip/blk_mem_gen_64k/blk_mem_gen_64k_stub.vhdl
+-- Command     : write_vhdl -force -mode synth_stub -rename_top blk_mem_gen_64k -prefix
+--               blk_mem_gen_64k_ blk_mem_gen_64k_stub.vhdl
 -- Design      : blk_mem_gen_64k
 -- Purpose     : Stub declaration of top-level module interface
 -- Device      : xc7s50csga324-1
