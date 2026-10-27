@@ -1,32 +1,38 @@
 #-----------------------------------------------------------
 # Vivado v2022.2 (64-bit)
-# SW Build 3671981 on Fri Oct 14 04:59:54 MDT 2022
+# SW Build 3671981 on Fri Oct 14 05:00:03 MDT 2022
 # IP Build 3669848 on Fri Oct 14 08:30:02 MDT 2022
-# Start of session at: Wed Nov 12 23:35:08 2025
-# Process ID: 147949
-# Current directory: /home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.runs/mb_usb_microblaze_0_0_synth_1
-# Command line: vivado -log mb_usb_microblaze_0_0.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source mb_usb_microblaze_0_0.tcl
-# Log file: /home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.runs/mb_usb_microblaze_0_0_synth_1/mb_usb_microblaze_0_0.vds
-# Journal file: /home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.runs/mb_usb_microblaze_0_0_synth_1/vivado.jou
-# Running On: reet-Lenovo-V15-G4-ABP, OS: Linux, CPU Frequency: 3516.687 MHz, CPU Physical cores: 16, Host memory: 39773 MB
+# Start of session at: Fri Dec 12 14:35:16 2025
+# Process ID: 89192
+# Current directory: C:/Users/sidva/Documents/Projects/FPGA/Apple IIe FPGA/apple2e/apple2e.runs/mb_usb_microblaze_0_0_synth_1
+# Command line: vivado.exe -log mb_usb_microblaze_0_0.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source mb_usb_microblaze_0_0.tcl
+# Log file: C:/Users/sidva/Documents/Projects/FPGA/Apple IIe FPGA/apple2e/apple2e.runs/mb_usb_microblaze_0_0_synth_1/mb_usb_microblaze_0_0.vds
+# Journal file: C:/Users/sidva/Documents/Projects/FPGA/Apple IIe FPGA/apple2e/apple2e.runs/mb_usb_microblaze_0_0_synth_1\vivado.jou
+# Running On: sids_lenovo_typ, OS: Windows, CPU Frequency: 2495 MHz, CPU Physical cores: 32, Host memory: 33487 MB
 #-----------------------------------------------------------
 source mb_usb_microblaze_0_0.tcl -notrace
+create_project: Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 373.477 ; gain = 50.934
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+WARNING: [IP_Flow 19-2248] Failed to load user IP repository 'c:/Users/Downloads/hdmi_tx_1.0'; Can't find the specified path.
+If this directory should no longer be in your list of user repositories, go to the IP Settings dialog and remove it.
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2022.2/data/ip'.
 INFO: [IP_Flow 19-6924] IPCACHE: Running cache check for IP inst: mb_usb_microblaze_0_0
 Command: synth_design -top mb_usb_microblaze_0_0 -part xc7s50csga324-1 -incremental_mode off -mode out_of_context
 Starting synth_design
+WARNING: [Vivado_Tcl 4-393] The 'Synthesis' target of the following IPs are stale, please generate the output products using the generate_target or synth_ip command before running synth_design.
+C:/Users/sidva/Documents/Projects/FPGA/Apple IIe FPGA/apple2e/apple2e.srcs/sources_1/bd/mb_usb/ip/mb_usb_microblaze_0_0/mb_usb_microblaze_0_0.xci
+
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7s50'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7s50'
 INFO: [Device 21-403] Loading part xc7s50csga324-1
-INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 4 processes.
+INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 147973
-INFO: [Synth 8-11241] undeclared symbol 'REGCCE', assumed default net type 'wire' [/tools/Xilinx/Vivado/2022.2/data/verilog/src/unimacro/BRAM_SINGLE_MACRO.v:2170]
+INFO: [Synth 8-7075] Helper process launched with PID 54140
+INFO: [Synth 8-11241] undeclared symbol 'REGCCE', assumed default net type 'wire' [C:/Xilinx/Vivado/2022.2/data/verilog/src/unimacro/BRAM_SINGLE_MACRO.v:2170]
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 1931.098 ; gain = 369.801 ; free physical = 20592 ; free virtual = 30981
-Synthesis current peak Physical Memory [PSS] (MB): peak = 1354.733; parent = 1150.157; children = 204.576
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 2912.090; parent = 1937.039; children = 975.051
+Starting RTL Elaboration : Time (s): cpu = 00:00:10 ; elapsed = 00:00:17 . Memory (MB): peak = 1188.148 ; gain = 406.391
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-638] synthesizing module 'mb_usb_microblaze_0_0' [/home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.gen/sources_1/bd/mb_usb/ip/mb_usb_microblaze_0_0/synth/mb_usb_microblaze_0_0.vhd:116]
+INFO: [Synth 8-638] synthesizing module 'mb_usb_microblaze_0_0' [c:/Users/sidva/Documents/Apple_IIe_FPGA/apple2e/apple2e.gen/sources_1/bd/mb_usb/ip/mb_usb_microblaze_0_0/synth/mb_usb_microblaze_0_0.vhd:116]
 	Parameter C_SCO bound to: 0 - type: integer 
 	Parameter C_FREQ bound to: 100000000 - type: integer 
 	Parameter C_USE_CONFIG_RESET bound to: 0 - type: integer 
@@ -196,8 +202,8 @@ INFO: [Synth 8-638] synthesizing module 'mb_usb_microblaze_0_0' [/home/reet/Desk
 	Parameter C_M_AXI_DC_WUSER_WIDTH bound to: 1 - type: integer 
 	Parameter C_M_AXI_DC_RUSER_WIDTH bound to: 1 - type: integer 
 	Parameter C_M_AXI_DC_BUSER_WIDTH bound to: 1 - type: integer 
-INFO: [Synth 8-3491] module 'MicroBlaze' declared at '/home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.gen/sources_1/bd/mb_usb/ipshared/1f7b/hdl/microblaze_v11_0_vh_rfs.vhd:165083' bound to instance 'U0' of component 'MicroBlaze' [/home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.gen/sources_1/bd/mb_usb/ip/mb_usb_microblaze_0_0/synth/mb_usb_microblaze_0_0.vhd:819]
-INFO: [Synth 8-256] done synthesizing module 'mb_usb_microblaze_0_0' (0#1) [/home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.gen/sources_1/bd/mb_usb/ip/mb_usb_microblaze_0_0/synth/mb_usb_microblaze_0_0.vhd:116]
+INFO: [Synth 8-3491] module 'MicroBlaze' declared at 'c:/Users/sidva/Documents/Apple_IIe_FPGA/apple2e/apple2e.gen/sources_1/bd/mb_usb/ipshared/1f7b/hdl/microblaze_v11_0_vh_rfs.vhd:165083' bound to instance 'U0' of component 'MicroBlaze' [c:/Users/sidva/Documents/Apple_IIe_FPGA/apple2e/apple2e.gen/sources_1/bd/mb_usb/ip/mb_usb_microblaze_0_0/synth/mb_usb_microblaze_0_0.vhd:819]
+INFO: [Synth 8-256] done synthesizing module 'mb_usb_microblaze_0_0' (0#1) [c:/Users/sidva/Documents/Apple_IIe_FPGA/apple2e/apple2e.gen/sources_1/bd/mb_usb/ip/mb_usb_microblaze_0_0/synth/mb_usb_microblaze_0_0.vhd:116]
 WARNING: [Synth 8-7129] Port ILMB_data_strobe in module instr_mux is either unconnected or has no load
 WARNING: [Synth 8-7129] Port ILMB_data_sel in module instr_mux is either unconnected or has no load
 WARNING: [Synth 8-7129] Port IEXT_data[0] in module instr_mux is either unconnected or has no load
@@ -300,43 +306,37 @@ WARNING: [Synth 8-7129] Port RAM_Debug_Trace_To[239] in module Debug is either u
 WARNING: [Synth 8-7129] Port RAM_Debug_Trace_To[238] in module Debug is either unconnected or has no load
 INFO: [Common 17-14] Message 'Synth 8-7129' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 2162.004 ; gain = 600.707 ; free physical = 20429 ; free virtual = 30820
-Synthesis current peak Physical Memory [PSS] (MB): peak = 1354.733; parent = 1150.157; children = 204.576
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 3137.059; parent = 2162.008; children = 975.051
+Finished RTL Elaboration : Time (s): cpu = 00:00:24 ; elapsed = 00:00:36 . Memory (MB): peak = 1479.629 ; gain = 697.871
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:07 ; elapsed = 00:00:09 . Memory (MB): peak = 2173.879 ; gain = 612.582 ; free physical = 20429 ; free virtual = 30820
-Synthesis current peak Physical Memory [PSS] (MB): peak = 1354.733; parent = 1150.157; children = 204.576
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 3148.934; parent = 2173.883; children = 975.051
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:24 ; elapsed = 00:00:37 . Memory (MB): peak = 1479.629 ; gain = 697.871
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:07 ; elapsed = 00:00:09 . Memory (MB): peak = 2173.879 ; gain = 612.582 ; free physical = 20429 ; free virtual = 30820
-Synthesis current peak Physical Memory [PSS] (MB): peak = 1354.733; parent = 1150.157; children = 204.576
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 3148.934; parent = 2173.883; children = 975.051
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:24 ; elapsed = 00:00:37 . Memory (MB): peak = 1479.629 ; gain = 697.871
 ---------------------------------------------------------------------------------
-Netlist sorting complete. Time (s): cpu = 00:00:00.09 ; elapsed = 00:00:00.09 . Memory (MB): peak = 2179.816 ; gain = 0.000 ; free physical = 20451 ; free virtual = 30842
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.213 . Memory (MB): peak = 1479.629 ; gain = 0.000
 INFO: [Netlist 29-17] Analyzing 512 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
 Initializing timing engine
-Parsing XDC File [/home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.gen/sources_1/bd/mb_usb/ip/mb_usb_microblaze_0_0/mb_usb_microblaze_0_0_ooc_debug.xdc] for cell 'U0'
-Finished Parsing XDC File [/home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.gen/sources_1/bd/mb_usb/ip/mb_usb_microblaze_0_0/mb_usb_microblaze_0_0_ooc_debug.xdc] for cell 'U0'
-Parsing XDC File [/home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.gen/sources_1/bd/mb_usb/ip/mb_usb_microblaze_0_0/mb_usb_microblaze_0_0_ooc.xdc] for cell 'U0'
-Finished Parsing XDC File [/home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.gen/sources_1/bd/mb_usb/ip/mb_usb_microblaze_0_0/mb_usb_microblaze_0_0_ooc.xdc] for cell 'U0'
-Parsing XDC File [/home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.gen/sources_1/bd/mb_usb/ip/mb_usb_microblaze_0_0/mb_usb_microblaze_0_0.xdc] for cell 'U0'
-Finished Parsing XDC File [/home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.gen/sources_1/bd/mb_usb/ip/mb_usb_microblaze_0_0/mb_usb_microblaze_0_0.xdc] for cell 'U0'
-INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [/home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.gen/sources_1/bd/mb_usb/ip/mb_usb_microblaze_0_0/mb_usb_microblaze_0_0.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/mb_usb_microblaze_0_0_propImpl.xdc].
+Parsing XDC File [c:/Users/sidva/Documents/Apple_IIe_FPGA/apple2e/apple2e.gen/sources_1/bd/mb_usb/ip/mb_usb_microblaze_0_0/mb_usb_microblaze_0_0_ooc_debug.xdc] for cell 'U0'
+Finished Parsing XDC File [c:/Users/sidva/Documents/Apple_IIe_FPGA/apple2e/apple2e.gen/sources_1/bd/mb_usb/ip/mb_usb_microblaze_0_0/mb_usb_microblaze_0_0_ooc_debug.xdc] for cell 'U0'
+Parsing XDC File [c:/Users/sidva/Documents/Apple_IIe_FPGA/apple2e/apple2e.gen/sources_1/bd/mb_usb/ip/mb_usb_microblaze_0_0/mb_usb_microblaze_0_0_ooc.xdc] for cell 'U0'
+Finished Parsing XDC File [c:/Users/sidva/Documents/Apple_IIe_FPGA/apple2e/apple2e.gen/sources_1/bd/mb_usb/ip/mb_usb_microblaze_0_0/mb_usb_microblaze_0_0_ooc.xdc] for cell 'U0'
+Parsing XDC File [c:/Users/sidva/Documents/Apple_IIe_FPGA/apple2e/apple2e.gen/sources_1/bd/mb_usb/ip/mb_usb_microblaze_0_0/mb_usb_microblaze_0_0.xdc] for cell 'U0'
+Finished Parsing XDC File [c:/Users/sidva/Documents/Apple_IIe_FPGA/apple2e/apple2e.gen/sources_1/bd/mb_usb/ip/mb_usb_microblaze_0_0/mb_usb_microblaze_0_0.xdc] for cell 'U0'
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [c:/Users/sidva/Documents/Apple_IIe_FPGA/apple2e/apple2e.gen/sources_1/bd/mb_usb/ip/mb_usb_microblaze_0_0/mb_usb_microblaze_0_0.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/mb_usb_microblaze_0_0_propImpl.xdc].
 Resolution: To avoid this warning, move constraints listed in [.Xil/mb_usb_microblaze_0_0_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
-Parsing XDC File [/home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.runs/mb_usb_microblaze_0_0_synth_1/dont_touch.xdc]
-Finished Parsing XDC File [/home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.runs/mb_usb_microblaze_0_0_synth_1/dont_touch.xdc]
+Parsing XDC File [C:/Users/sidva/Documents/Projects/FPGA/Apple IIe FPGA/apple2e/apple2e.runs/mb_usb_microblaze_0_0_synth_1/dont_touch.xdc]
+Finished Parsing XDC File [C:/Users/sidva/Documents/Projects/FPGA/Apple IIe FPGA/apple2e/apple2e.runs/mb_usb_microblaze_0_0_synth_1/dont_touch.xdc]
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2254.754 ; gain = 0.000 ; free physical = 20492 ; free virtual = 30882
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.009 . Memory (MB): peak = 1479.629 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
   A total of 409 instances were transformed.
   FD => FDRE: 32 instances
@@ -349,36 +349,28 @@ INFO: [Project 1-111] Unisim Transformation Summary:
   MUXCY_L => MUXCY: 121 instances
   RAM32X1D => RAM32X1D (RAMD32(x2)): 64 instances
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00.08 ; elapsed = 00:00:00.05 . Memory (MB): peak = 2254.754 ; gain = 0.000 ; free physical = 20492 ; free virtual = 30882
+Constraint Validation Runtime : Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.129 . Memory (MB): peak = 1479.629 ; gain = 0.000
 INFO: [Designutils 20-5008] Incremental synthesis strategy off
-INFO: [Synth 8-11241] undeclared symbol 'REGCCE', assumed default net type 'wire' [/tools/Xilinx/Vivado/2022.2/data/verilog/src/unimacro/BRAM_SINGLE_MACRO.v:2170]
+INFO: [Synth 8-11241] undeclared symbol 'REGCCE', assumed default net type 'wire' [C:/Xilinx/Vivado/2022.2/data/verilog/src/unimacro/BRAM_SINGLE_MACRO.v:2170]
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:13 ; elapsed = 00:00:15 . Memory (MB): peak = 2254.754 ; gain = 693.457 ; free physical = 20620 ; free virtual = 31011
-Synthesis current peak Physical Memory [PSS] (MB): peak = 1357.791; parent = 1153.215; children = 204.576
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 3197.793; parent = 2222.742; children = 975.051
+Finished Constraint Validation : Time (s): cpu = 00:00:38 ; elapsed = 00:00:51 . Memory (MB): peak = 1479.629 ; gain = 697.871
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7s50csga324-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:13 ; elapsed = 00:00:15 . Memory (MB): peak = 2254.754 ; gain = 693.457 ; free physical = 20620 ; free virtual = 31011
-Synthesis current peak Physical Memory [PSS] (MB): peak = 1357.791; parent = 1153.215; children = 204.576
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 3197.793; parent = 2222.742; children = 975.051
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:38 ; elapsed = 00:00:51 . Memory (MB): peak = 1479.629 ; gain = 697.871
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
-Applied set_property KEEP_HIERARCHY = SOFT for U0. (constraint file  /home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.runs/mb_usb_microblaze_0_0_synth_1/dont_touch.xdc, line 9).
+Applied set_property KEEP_HIERARCHY = SOFT for U0. (constraint file  C:/Users/sidva/Documents/Projects/FPGA/Apple IIe FPGA/apple2e/apple2e.runs/mb_usb_microblaze_0_0_synth_1/dont_touch.xdc, line 9).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:13 ; elapsed = 00:00:15 . Memory (MB): peak = 2254.754 ; gain = 693.457 ; free physical = 20620 ; free virtual = 31011
-Synthesis current peak Physical Memory [PSS] (MB): peak = 1357.791; parent = 1153.215; children = 204.576
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 3197.793; parent = 2222.742; children = 975.051
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:38 ; elapsed = 00:00:51 . Memory (MB): peak = 1479.629 ; gain = 697.871
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:15 ; elapsed = 00:00:17 . Memory (MB): peak = 2254.754 ; gain = 693.457 ; free physical = 20592 ; free virtual = 30984
-Synthesis current peak Physical Memory [PSS] (MB): peak = 1358.298; parent = 1153.764; children = 204.576
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 3197.793; parent = 2222.742; children = 975.051
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:41 ; elapsed = 00:00:55 . Memory (MB): peak = 1479.629 ; gain = 697.871
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start RTL Component Statistics 
@@ -404,174 +396,5 @@ INFO: [Synth 8-3332] Sequential element (MicroBlaze_Core_I/Area.Core/Decode_I/Us
 INFO: [Synth 8-3332] Sequential element (MicroBlaze_Core_I/Area.Core/Decode_I/Using_FPGA.ALU_long_ALU_Op_FDRE/Using_FPGA.Native) is unused and will be removed from module MicroBlaze.
 INFO: [Synth 8-3332] Sequential element (MicroBlaze_Core_I/Area.Core/Decode_I/Using_FPGA.Reg_Test_Long_FDRE/Using_FPGA.Native) is unused and will be removed from module MicroBlaze.
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:19 ; elapsed = 00:00:22 . Memory (MB): peak = 2254.754 ; gain = 693.457 ; free physical = 20647 ; free virtual = 31048
-Synthesis current peak Physical Memory [PSS] (MB): peak = 1404.962; parent = 1200.428; children = 204.576
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 3197.793; parent = 2222.742; children = 975.051
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:47 ; elapsed = 00:01:01 . Memory (MB): peak = 1479.629 ; gain = 697.871
 ---------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Start Applying XDC Timing Constraints
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:23 ; elapsed = 00:00:25 . Memory (MB): peak = 2254.754 ; gain = 693.457 ; free physical = 20574 ; free virtual = 30975
-Synthesis current peak Physical Memory [PSS] (MB): peak = 1514.087; parent = 1309.553; children = 204.576
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 3197.793; parent = 2222.742; children = 975.051
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Start Timing Optimization
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:25 ; elapsed = 00:00:27 . Memory (MB): peak = 2254.754 ; gain = 693.457 ; free physical = 20526 ; free virtual = 30928
-Synthesis current peak Physical Memory [PSS] (MB): peak = 1530.396; parent = 1325.861; children = 204.576
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 3197.793; parent = 2222.742; children = 975.051
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Start Technology Mapping
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:25 ; elapsed = 00:00:28 . Memory (MB): peak = 2254.754 ; gain = 693.457 ; free physical = 20527 ; free virtual = 30929
-Synthesis current peak Physical Memory [PSS] (MB): peak = 1530.661; parent = 1326.127; children = 204.576
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 3197.793; parent = 2222.742; children = 975.051
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Start IO Insertion
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Start Flattening Before IO Insertion
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Finished Flattening Before IO Insertion
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Start Final Netlist Cleanup
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Finished Final Netlist Cleanup
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:28 ; elapsed = 00:00:30 . Memory (MB): peak = 2254.754 ; gain = 693.457 ; free physical = 20528 ; free virtual = 30930
-Synthesis current peak Physical Memory [PSS] (MB): peak = 1530.954; parent = 1326.420; children = 204.576
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 3197.793; parent = 2222.742; children = 975.051
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Start Renaming Generated Instances
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:28 ; elapsed = 00:00:31 . Memory (MB): peak = 2254.754 ; gain = 693.457 ; free physical = 20528 ; free virtual = 30930
-Synthesis current peak Physical Memory [PSS] (MB): peak = 1530.970; parent = 1326.436; children = 204.576
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 3197.793; parent = 2222.742; children = 975.051
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Start Rebuilding User Hierarchy
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:28 ; elapsed = 00:00:31 . Memory (MB): peak = 2254.754 ; gain = 693.457 ; free physical = 20528 ; free virtual = 30930
-Synthesis current peak Physical Memory [PSS] (MB): peak = 1531.317; parent = 1326.783; children = 204.576
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 3197.793; parent = 2222.742; children = 975.051
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Start Renaming Generated Ports
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:28 ; elapsed = 00:00:31 . Memory (MB): peak = 2254.754 ; gain = 693.457 ; free physical = 20528 ; free virtual = 30930
-Synthesis current peak Physical Memory [PSS] (MB): peak = 1531.380; parent = 1326.846; children = 204.576
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 3197.793; parent = 2222.742; children = 975.051
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Start Handling Custom Attributes
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:28 ; elapsed = 00:00:31 . Memory (MB): peak = 2254.754 ; gain = 693.457 ; free physical = 20528 ; free virtual = 30930
-Synthesis current peak Physical Memory [PSS] (MB): peak = 1531.380; parent = 1326.846; children = 204.576
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 3197.793; parent = 2222.742; children = 975.051
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Start Renaming Generated Nets
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:28 ; elapsed = 00:00:31 . Memory (MB): peak = 2254.754 ; gain = 693.457 ; free physical = 20528 ; free virtual = 30930
-Synthesis current peak Physical Memory [PSS] (MB): peak = 1531.380; parent = 1326.846; children = 204.576
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 3197.793; parent = 2222.742; children = 975.051
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Start Writing Synthesis Report
----------------------------------------------------------------------------------
-
-DSP Final Report (the ' indicates corresponding REG is set)
-+---------------------------+--------------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
-|Module Name                | DSP Mapping        | A Size | B Size | C Size | D Size | P Size | AREG | BREG | CREG | DREG | ADREG | MREG | PREG | 
-+---------------------------+--------------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
-|MB_DSP48E1__parameterized1 | (PCIN>>17+(A*B)')' | 30     | 17     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 1    | 1    | 
-|MB_DSP48E1__parameterized3 | PCIN+(A'*B')'      | 17     | 18     | -      | -      | 48     | 1    | 1    | -    | -    | -     | 1    | 0    | 
-|MB_DSP48E1                 | (A*B)'             | 17     | 17     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 1    | 
-+---------------------------+--------------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
-
-
-Report BlackBoxes: 
-+-+--------------+----------+
-| |BlackBox name |Instances |
-+-+--------------+----------+
-+-+--------------+----------+
-
-Report Cell Usage: 
-+------+---------+------+
-|      |Cell     |Count |
-+------+---------+------+
-|1     |DSP48E1  |     3|
-|4     |LUT1     |     9|
-|5     |LUT2     |    65|
-|6     |LUT3     |    97|
-|7     |LUT4     |   263|
-|8     |LUT5     |   155|
-|9     |LUT6     |   452|
-|11    |MULT_AND |     2|
-|12    |MUXCY_L  |   119|
-|13    |MUXF7    |    34|
-|14    |RAM32X1D |    64|
-|15    |SRL16E   |    78|
-|16    |SRLC16E  |     8|
-|17    |XORCY    |    67|
-|18    |FD       |    32|
-|19    |FDCE     |     7|
-|20    |FDE      |    32|
-|21    |FDR      |     1|
-|22    |FDRE     |   669|
-|23    |FDS      |     3|
-|24    |FDSE     |    66|
-+------+---------+------+
----------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:28 ; elapsed = 00:00:31 . Memory (MB): peak = 2254.754 ; gain = 693.457 ; free physical = 20528 ; free virtual = 30930
-Synthesis current peak Physical Memory [PSS] (MB): peak = 1531.427; parent = 1326.893; children = 204.576
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 3197.793; parent = 2222.742; children = 975.051
----------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 0 critical warnings and 10615 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:25 ; elapsed = 00:00:29 . Memory (MB): peak = 2254.754 ; gain = 612.582 ; free physical = 20557 ; free virtual = 30958
-Synthesis Optimization Complete : Time (s): cpu = 00:00:28 ; elapsed = 00:00:31 . Memory (MB): peak = 2254.754 ; gain = 693.457 ; free physical = 20557 ; free virtual = 30958
-INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:00.06 ; elapsed = 00:00:00.05 . Memory (MB): peak = 2254.754 ; gain = 0.000 ; free physical = 20673 ; free virtual = 31075
-INFO: [Netlist 29-17] Analyzing 502 Unisim elements for replacement
-INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
-INFO: [Project 1-570] Preparing netlist for logic optimization
-INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2254.754 ; gain = 0.000 ; free physical = 20665 ; free virtual = 31066
-INFO: [Project 1-111] Unisim Transformation Summary:
-  A total of 315 instances were transformed.
-  (MUXCY,XORCY) => CARRY4: 36 instances
-  FD => FDRE: 32 instances
-  FDE => FDRE: 32 instances
-  FDR => FDRE: 1 instance 
-  FDS => FDSE: 3 instances
-  LUT6_2 => LUT6_2 (LUT5, LUT6): 145 instances
-  MULT_AND => LUT2: 2 instances
-  RAM32X1D => RAM32X1D (RAMD32(x2)): 64 instances
-
-Synth Design complete, checksum: f91943e2
-INFO: [Common 17-83] Releasing license: Synthesis
-29 Infos, 101 Warnings, 0 Critical Warnings and 0 Errors encountered.
-synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:33 ; elapsed = 00:00:34 . Memory (MB): peak = 2254.754 ; gain = 992.582 ; free physical = 20818 ; free virtual = 31220
-INFO: [Common 17-1381] The checkpoint '/home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.runs/mb_usb_microblaze_0_0_synth_1/mb_usb_microblaze_0_0.dcp' has been generated.
-INFO: [Coretcl 2-1648] Added synthesis output to IP cache for IP mb_usb_microblaze_0_0, cache-ID = 1adc401b7514f7a0
-INFO: [Coretcl 2-1174] Renamed 1144 cell refs.
-INFO: [Common 17-1381] The checkpoint '/home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.runs/mb_usb_microblaze_0_0_synth_1/mb_usb_microblaze_0_0.dcp' has been generated.
-INFO: [runtcl-4] Executing : report_utilization -file mb_usb_microblaze_0_0_utilization_synth.rpt -pb mb_usb_microblaze_0_0_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Wed Nov 12 23:35:51 2025...

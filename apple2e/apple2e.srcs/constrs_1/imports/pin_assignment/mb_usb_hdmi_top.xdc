@@ -89,5 +89,6 @@ set_property -dict {PACKAGE_PIN R14 IOSTANDARD TMDS_33} [get_ports {hdmi_tmds_da
 
 
 set_property -dict {PACKAGE_PIN C13 IOSTANDARD LVCMOS33} [get_ports led]
+set_property -dict {PACKAGE_PIN D10 IOSTANDARD TMDS_33} [get_ports D10]
 
 

@@ -32,13 +32,19 @@ module apple2_mmu (
     output logic        text_mode,     // 1 = TEXT, 0 = graphics
     output logic        hires_mode,    // 1 = HIRES, 0 = LORES (when text_mode == 0)
     output logic        page_select,    // 0 = PAGE1 ($0400 / $2000), 1 = PAGE2 ($0800 / $4000)
-    output logic        mixed_mode     // 1 = graphics + 4 lines text
+    output logic        mixed_mode,     // 1 = graphics + 4 lines text
+    
+    output logic D10
 );
+
+
+    
     // Address regions
     logic addr_is_c000        = (cpu_addr == 16'hC000);
     logic addr_in_c010_to_01F = (cpu_addr[15:4] == 12'hC01);
     logic c0xx_region         = (cpu_addr[15:8] == 8'hC0);
     logic ram_region          = (cpu_addr < 16'hC000);   // 0000–BFFF
+    logic speaker_region      = (cpu_addr == 15'hC030);
 
     // Keyboard latch @ C000
     logic [7:0] kb_data_out;
@@ -67,6 +73,7 @@ module apple2_mmu (
             hires_mode  <= 1'b0; // LORES by default if graphics
             page_select <= 1'b0; // PAGE1 by default
             mixed_mode  <= 1'b0;
+            D10 <= 1'b0;
         end else begin
             if(cpu_valid && c0xx_region) begin
                 unique case (cpu_addr)
@@ -116,6 +123,13 @@ module apple2_mmu (
                 // → ROM sees "no aux, no banked memory"
                 cpu_di = 8'h00;
 
+            end else if (speaker_region) begin
+                if (D10 == 1'b1) begin
+                    D10 = 1'b0;
+                end else begin
+                    D10 = 1'b1;
+                end
+                
             end else begin
                 // 0000–BFFF (RAM) or C100–FFFF (ROM) via BRAM
                 cpu_di = mem_dout;

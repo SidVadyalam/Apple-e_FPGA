@@ -63,4 +63,4 @@ set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==mb_usb_axi_
 # IP: bd/mb_usb/ip/mb_usb_axi_quad_spi_0_0/mb_usb_axi_quad_spi_0_0.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==mb_usb_axi_quad_spi_0_0 || ORIG_REF_NAME==mb_usb_axi_quad_spi_0_0} -quiet] -quiet
 
-# XDC: /home/reet/Desktop/ECE385/FinalProject/apple2e/apple2e.gen/sources_1/bd/mb_usb/mb_usb_ooc.xdc
+# XDC: c:/Users/sidva/Documents/Apple_IIe_FPGA/apple2e/apple2e.gen/sources_1/bd/mb_usb/mb_usb_ooc.xdc

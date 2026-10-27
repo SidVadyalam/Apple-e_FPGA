@@ -49,7 +49,8 @@ module top_module(
         output logic [3:0] hex_gridB,
 
         //debug
-        output logic led
+        output logic led,
+        output logic D10
     );
 
     logic [31:0] keycode0_gpio, keycode1_gpio;
@@ -340,7 +341,8 @@ module top_module(
         .text_mode   (text_mode),
         .hires_mode  (hires_mode),
         .page_select (page_select),
-        .mixed_mode(mixed_mode)
+        .mixed_mode(mixed_mode),
+        .D10(D10)
     );
 
     assign t65_DI = cpu_di_mmu;

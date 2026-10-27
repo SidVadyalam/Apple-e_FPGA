@@ -4771,10 +4771,6 @@ This bit has no significance in dual or quad mode.
         </spirit:fileSetRef>
         <spirit:parameters>
           <spirit:parameter>
-            <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Thu Nov 13 05:39:01 UTC 2025</spirit:value>
-          </spirit:parameter>
-          <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
             <spirit:value>9:7675bcd4</spirit:value>
           </spirit:parameter>
